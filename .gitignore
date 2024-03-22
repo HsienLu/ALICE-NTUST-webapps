@@ -1,11 +1,4 @@
 *.mp4
 *.swf
 node_modules
-wise55/wise5/node_modules
-examples/*
-hello
-helloworld
 *.war
-studentuploads
-curriculum
-docs
