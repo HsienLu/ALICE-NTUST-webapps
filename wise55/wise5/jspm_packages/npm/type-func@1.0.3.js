@@ -1,0 +1,1 @@
+module.exports = require("npm:type-func@1.0.3/dist/bundle.js");

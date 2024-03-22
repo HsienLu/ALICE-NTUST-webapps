@@ -1,0 +1,10 @@
+{
+   "url":"",
+	"exportColumns":[
+     {
+        "columnName":"Response",
+        "field":"response"
+     }
+   ],
+   "type": "WebApp"
+}

@@ -1,0 +1,60 @@
+.annotations--grading {
+    //margin: 8px 2px 4px;
+    //padding: 12px 8px 8px;
+    border: 2px solid color('primary');
+    background-color: color('selected-bg');
+
+    margin: 8px 0 0;
+    padding: 12px 8px 0;
+    //border: 1px solid color('primary');
+    //box-shadow: 0 0 3px color('gray') inset;
+
+    md-input-container {
+        margin-bottom: 0;
+    }
+}
+
+.annotations--grading--revision {
+    margin: 8px 0 0;
+    padding: 8px;
+}
+
+.annotations--grading__info {
+    font-style: italic;
+    margin: 8px 8px 4px;
+}
+
+.annotations--grading__score {
+    @media only screen and (min-width: $layout-breakpoint-xs) {
+        margin-left: 16px;
+        //min-width: 108px;
+    }
+
+    input {
+        font-size: rem(1.8);
+        width: 54px;
+    }
+}
+
+.annotations--grading__score__max {
+    margin-left: 8px;
+}
+
+.annotations--grading__score__label {
+    transform: none !important;
+    width: auto;
+    display: block;
+    padding: 0;
+    margin: 3px 0 8px;
+}
+
+.annotations--grading__score__divider {
+    position: relative;
+    top: 12px;
+    margin-left: 4px;
+}
+
+.annotations--grading__auto-comment {
+    margin: 12px 4px 16px;
+    //border-left: 3px solid color('gray-light');
+}

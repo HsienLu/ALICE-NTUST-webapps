@@ -1,0 +1,43 @@
+<md-toolbar class="md-whiteframe-1dp layout-toolbar md-toolbar--wise" md-theme="light">
+    <div class="md-toolbar-tools">
+        <!--<md-button aria-label="Project content menu" class="md-icon-button" ng-click="stepToolsCtrl.toggleStepNav()">
+            <md-icon> menu </md-icon>
+        </md-button>-->
+        <node-icon node-id="stepToolsCtrl.nodeId" size="18" icon="stepToolsCtrl.nodeStatus.icon"></node-icon>
+        <!--<span>{{ stepToolsCtrl.showPosition ? stepToolsCtrl.getNodePositionById(stepToolsCtrl.nodeId) + ': ' : '' }}{{ stepToolsCtrl.getNodeTitleByNodeId(stepToolsCtrl.nodeId) }}</span>-->
+
+        <md-select id="stepSelectMenu" md-theme="default" class="node-select md-subhead"
+                   aria-label="{{ 'projectItemSelect' | translate }}"
+                   ng-model="stepToolsCtrl.toNodeId"
+                   ng-change="stepToolsCtrl.toNodeIdChanged()"
+                   md-selected-text="stepToolsCtrl.getSelectedText($value)">
+            <md-option ng-repeat="item in stepToolsCtrl.idToOrder | toArray | orderBy : 'order'"
+                       ng-if="stepToolsCtrl.nodeStatuses[item.$key].isVisible && item.order!==0"
+                       value="{{ item.$key }}"
+                       ng-class="{'node-select-option--group': stepToolsCtrl.isGroupNode(item.$key), 'node-select-option--node': !stepToolsCtrl.isGroupNode(item.$key)}">
+                <div layout="row" layout-align="start center">
+                    <node-icon node-id="item.$key" size="18" icon="stepToolsCtrl.nodeStatuses[item.$key].icon" custom-class="'node-select__icon'"></node-icon>
+                    <span class="node-select__text">{{ stepToolsCtrl.showPosition ? stepToolsCtrl.getNodePositionById(item.$key) + ': ' : '' }}{{ stepToolsCtrl.getNodeTitleByNodeId(item.$key) }}</span>
+                    <node-status-icon node-id="item.$key" custom-class="'node-select__status'"></node-status-icon>
+                </div>
+            </md-option>
+        </md-select>
+        <!--<md-button aria-label="Notifications" class="md-icon-button">
+            <md-icon md-theme="default"> message </md-icon>
+        </md-button> TODO: Add notifications and score when operational-->
+        <node-status-icon node-id="stepToolsCtrl.nodeId"></node-status-icon>
+        <span flex></span>
+        <md-button aria-label="{{ 'previousItem' | translate }}" class="md-icon-button node-nav"
+                   ng-disabled="!stepToolsCtrl.prevId" ng-click="stepToolsCtrl.goToPrevNode()">
+            <md-icon> arrow_back </md-icon>
+        </md-button>
+        <md-button aria-label="{{ 'nextItem' | translate }}" class="md-icon-button node-nav"
+                   ng-disabled="!stepToolsCtrl.nextId" ng-click="stepToolsCtrl.goToNextNode()">
+            <md-icon> arrow_forward </md-icon>
+        </md-button>
+        <md-button aria-label="{{ 'projectPlan' | translate }}" class="md-icon-button node-nav" ng-click="stepToolsCtrl.closeNode()">
+            <md-icon md-theme="default"> view_list </md-icon>
+            <md-tooltip md-direction="down">{{ 'projectPlan' | translate }}</md-tooltip>
+        </md-button>
+    </div>
+</md-toolbar>

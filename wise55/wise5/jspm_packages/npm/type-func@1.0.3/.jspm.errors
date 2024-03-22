@@ -1,0 +1,9 @@
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/type-func@1.0.3/dist/bundle.es.js:74:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/dist/bundle.es.js:74:8: Semi-colon expected
+
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:8:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:8:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:19:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:19:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:35:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/type-func@1.0.3/src/index.js:35:8: Semi-colon expected

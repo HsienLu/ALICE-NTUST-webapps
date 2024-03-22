@@ -1,0 +1,1 @@
+module.exports = require("npm:create-point-cb@1.2.0/dist/bundle.js");

@@ -1,0 +1,15 @@
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:1:1: Unexpected reserved word import
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:1:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:1:25: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:89:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:89:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:89:8: Unexpected reserved word default
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/dist/bundle.es.js:89:16: Semi-colon expected
+
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:1:1: Unexpected reserved word import
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:1:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:1:23: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:3:1: Unexpected reserved word export
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:3:8: Semi-colon expected
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:3:8: Unexpected reserved word default
+/home/wiseqa/.jspm/packages/npm/create-point-cb@1.2.0/src/index.js:3:16: Semi-colon expected

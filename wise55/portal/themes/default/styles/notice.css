@@ -1,0 +1,29 @@
+.notice{
+    background-color: #FFF6E9;
+    padding-left: 1rem;
+    color:#404040;
+    display: flex;
+    height: 1rem;
+}
+.notice-align{
+    align-self: center;
+}
+.notice-aminate{
+    animation-name: notice-aminate;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    flex-grow: 1;
+}
+.overflow{
+    overflow: hidden;
+}
+@keyframes notice-aminate {
+    0%{
+        transform:translateX(0);
+    }
+   
+    100% {
+        transform:translateX(100%);
+    }
+} 

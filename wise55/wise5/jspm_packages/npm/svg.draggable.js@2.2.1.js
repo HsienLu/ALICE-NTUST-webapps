@@ -1,0 +1,1 @@
+module.exports = require("npm:svg.draggable.js@2.2.1/dist/svg.draggable.js");

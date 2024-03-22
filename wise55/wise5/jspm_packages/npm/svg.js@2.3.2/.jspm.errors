@@ -1,0 +1,7 @@
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/svg.js@2.3.2/spec/spec/point.js:114:3: Unexpected token describe
+
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/svg.js@2.3.2/src/svg.js:26:21: Illegal return statement
+
+MultipleErrors: /home/wiseqa/.jspm/packages/npm/svg.js@2.3.2/src/umd.js:13:1: Unexpected token <
+/home/wiseqa/.jspm/packages/npm/svg.js@2.3.2/src/umd.js:13:1: Invalid left-hand side expression in assignment
+/home/wiseqa/.jspm/packages/npm/svg.js@2.3.2/src/umd.js:13:15: Unexpected token >

@@ -1,0 +1,344 @@
+<style>
+    {{labelController.nodeContent.style}}
+</style>
+
+<div class='openResponse' ng-controller='LabelController as labelController' flex>
+    <div ng-if='labelController.mode === "authoring" && !labelController.authoringComponentContent.showPreviousWork'>
+        <textarea ng-model='labelController.authoringComponentContent.prompt'
+                  ng-change='labelController.authoringViewComponentChanged()'
+                  ng-model-options='{ debounce: 1000 }'
+                  rows='3'
+                  cols='100'></textarea>
+        <br/>
+        {{ 'BACKGROUND_IMAGE' | translate }}: <input ng-model='labelController.authoringComponentContent.backgroundImage'
+                                 ng-change='labelController.authoringViewComponentChanged()'
+                                 ng-model-options='{ debounce: 1000 }'
+                                 size='50'/> <button translate='CHOOSE' ng-click='labelController.chooseBackgroundImage()'></button>
+        <br/>
+        {{ 'label.allowStudentToUploadImageForBackground' | translate }}
+        <input type='checkbox'
+               ng-model='labelController.authoringComponentContent.enableStudentUploadBackground'
+               ng-change='labelController.authoringViewComponentChanged()'/>
+        <br/>
+        {{ 'label.canStudentCreateLabels' | translate }}: <input type='checkbox'
+                                          ng-model='labelController.authoringComponentContent.canCreateLabels'
+                                          ng-change='labelController.authoringViewComponentChanged()'/>
+        <br/>
+        {{ 'label.canStudentDeleteLabels' | translate }}: <input type='checkbox'
+                                          ng-model='labelController.authoringComponentContent.canDeleteLabels'
+                                          ng-change='labelController.authoringViewComponentChanged()'/>
+        <br/>
+        {{ 'WIDTH' | translate }}: <input type='number'
+                      ng-model='labelController.authoringComponentContent.width'
+                      ng-change='labelController.authoringViewComponentChanged()'
+                      ng-model-options='{ debounce: 1000 }'
+                      style='width: 4em'/>
+        {{ 'HEIGHT' | translate }}: <input type='number'
+                       ng-model='labelController.authoringComponentContent.height'
+                       ng-change='labelController.authoringViewComponentChanged()'
+                       ng-model-options='{ debounce: 1000 }'
+                       style='width: 4em'/>
+        <br/>
+        {{ 'label.labels' | translate }}
+        <div ng-repeat='label in labelController.authoringComponentContent.labels track by $index'
+             style='border: 1px solid black'>
+            {{ 'TEXT' | translate }}: <input ng-model='label.text'
+                         ng-change='labelController.authoringViewComponentChanged()'
+                         ng-model-options='{ debounce: 1000 }'/>
+            <br/>
+            {{ 'label.color' | translate }}: <input ng-model='label.color'
+                          ng-change='labelController.authoringViewComponentChanged()'
+                          ng-model-options='{ debounce: 1000 }'/>
+            <button ng-click='labelController.openColorViewer()'>{{ 'label.viewColors' | translate }}</button>
+            <br/>
+            {{ 'label.xLocation' | translate }}: <input type='number'
+                               ng-model='label.pointX'
+                               ng-change='labelController.authoringViewComponentChanged()'
+                               ng-model-options='{ debounce: 1000 }'/>
+            {{ 'label.yLocation' | translate }}: <input type='number'
+                               ng-model='label.pointY'
+                               ng-change='labelController.authoringViewComponentChanged()'
+                               ng-model-options='{ debounce: 1000 }'/>
+            <br/>
+            {{ 'label.relativeTextXLocation' | translate }}: <input type='number'
+                                             ng-model='label.textX'
+                                             ng-change='labelController.authoringViewComponentChanged()'
+                                             ng-model-options='{ debounce: 1000 }'/>
+            {{ 'label.relativeTextYLocation' | translate }}: <input type='number'
+                                             ng-model='label.textY'
+                                             ng-change='labelController.authoringViewComponentChanged()'
+                                             ng-model-options='{ debounce: 1000 }'/>
+            <br/>
+            <button ng-click='labelController.authoringDeleteLabelClicked($index, label)'>{{ 'label.deleteLabel' | translate }}</button>
+        </div>
+        <br/>
+        <button ng-click='labelController.authoringAddLabelClicked()'>{{ 'label.addLabel' | translate }}</button>
+        <br/>
+        <br/>
+        <button ng-click='labelController.saveStarterLabels()'>{{ 'label.saveStarterLabels' | translate }}</button> <button ng-click='labelController.deleteStarterLabels()'>{{ 'label.deleteStarterLabels' | translate }}</button>
+    </div>
+    <div ng-if='labelController.mode === "authoring"'>
+        <br/>
+        <button ng-click='labelController.showAdvancedAuthoring = !labelController.showAdvancedAuthoring'>{{ 'ADVANCED' | translate }}</button>
+        <br/>
+        <div ng-show='labelController.showAdvancedAuthoring'>
+            {{ 'SHOW_SAVE_BUTTON' | translate }}:
+            <input type='checkbox'
+                   ng-model='labelController.authoringComponentContent.showSaveButton'
+                   ng-change='labelController.authoringViewComponentChanged()'/>
+            <br/>
+            {{ 'SHOW_SUBMIT_BUTTON' | translate }}:
+            <input type='checkbox'
+                   ng-model='labelController.authoringComponentContent.showSubmitButton'
+                   ng-change='labelController.showSubmitButtonValueChanged()'/>
+            <div ng-show='labelController.authoringComponentContent.showSubmitButton'
+                 style='display:inline'>
+                <span>{{ 'MAX_SUBMIT' | translate }}:</span>
+                <input type='number'
+                       ng-model='labelController.authoringComponentContent.maxSubmitCount'
+                       ng-change='labelController.authoringViewComponentChanged()'/>
+            </div>
+            <br/>
+            {{ 'MAX_SCORE' | translate }}:
+            <input type='number'
+                   ng-model='labelController.authoringComponentContent.maxScore'
+                   ng-change='labelController.authoringViewComponentChanged()'
+                   ng-model-options='{ debounce: 1000 }'
+                   style='width: 3em'/>
+            <br/>
+            {{ 'COMPONENT_WIDTH' | translate }}:
+            <input type='number'
+                   ng-model='labelController.authoringComponentContent.componentWidth'
+                   ng-change='labelController.authoringViewComponentChanged()'
+                   ng-model-options='{ debounce: 1000 }'
+                   style='width: 3em'/>
+            <br/>
+            <div ng-if='labelController.mode === "authoring"'>
+                {{ 'IMPORT_PREVIOUS_WORK' | translate }}:
+                <input type='checkbox'
+                       ng-model='labelController.authoringComponentContent.importPreviousWork'
+                       ng-click='labelController.authoringImportPreviousWorkClicked()'
+                       ng-change='labelController.authoringViewComponentChanged()'/>
+            </div>
+            <div ng-if='labelController.mode === "authoring" && labelController.authoringComponentContent.importPreviousWork'>
+                {{ 'IMPORT_PREVIOUS_WORK_STEP' | translate }}:
+                <select ng-model='labelController.authoringComponentContent.importPreviousWorkNodeId'
+                        ng-change='labelController.authoringImportPreviousWorkNodeIdChanged()'>
+                    <option></option>
+                    <option ng-repeat='item in labelController.idToOrder | toArray | orderBy : "order"'
+                            value='{{item.$key}}'
+                            ng-if='labelController.isApplicationNode(item.$key)'>{{labelController.getNodePositionAndTitleByNodeId(item.$key)}}</option>
+                </select>
+                <br/>
+                {{ 'IMPORT_PREVIOUS_WORK_COMPONENT' | translate }}:
+                <select ng-model='labelController.authoringComponentContent.importPreviousWorkComponentId'
+                        ng-change='labelController.authoringImportPreviousWorkComponentIdChanged()'
+                        ng-options='component.id as component.type disable when !labelController.componentHasWork(component) for component in labelController.getComponentsByNodeId(labelController.authoringComponentContent.importPreviousWorkNodeId)'>
+                    <option></option>
+                </select>
+            </div>
+            <div ng-if='labelController.mode === "authoring"'>
+                {{ 'SHOW_PREVIOUS_WORK' | translate }}:
+                <input type='checkbox'
+                       ng-model='labelController.authoringComponentContent.showPreviousWork'
+                       ng-click='labelController.authoringShowPreviousWorkClicked()'
+                       ng-change='labelController.authoringViewComponentChanged()'/>
+            </div>
+            <div ng-if='labelController.mode === "authoring" && labelController.authoringComponentContent.showPreviousWork'>
+                {{ 'SHOW_PREVIOUS_WORK_STEP' | translate }}:
+                <select ng-model='labelController.authoringComponentContent.showPreviousWorkNodeId'
+                        ng-change='labelController.authoringShowPreviousWorkNodeIdChanged()'>
+                    <option></option>
+                    <option ng-repeat='item in labelController.idToOrder | toArray | orderBy : "order"'
+                            value='{{item.$key}}'
+                            ng-if='labelController.isApplicationNode(item.$key)'>{{labelController.getNodePositionAndTitleByNodeId(item.$key)}}</option>
+                </select>
+                <br/>
+                {{ 'SHOW_PREVIOUS_WORK_COMPONENT' | translate }}:
+                <select ng-model='labelController.authoringComponentContent.showPreviousWorkComponentId'
+                        ng-change='labelController.authoringShowPreviousWorkComponentIdChanged()'
+                        ng-options='component.id as component.type disable when !labelController.componentHasWork(component) for component in labelController.getComponentsByNodeId(labelController.authoringComponentContent.showPreviousWorkNodeId)'>
+                    <option></option>
+                </select>
+                <br/>
+                {{ 'SHOW_PREVIOUS_WORK_PROMPT' | translate }}:
+                <input type='checkbox'
+                       ng-model='labelController.authoringComponentContent.showPreviousWorkPrompt'
+                       ng-change='labelController.authoringViewComponentChanged()'/>
+            </div>
+            <div ng-if='labelController.mode === "authoring"'>
+                <button ng-click='labelController.addConnectedComponent()'>{{ 'ADD_CONNECTED_COMPONENT' | translate }}</button>
+                <div ng-repeat='connectedComponent in labelController.authoringComponentContent.connectedComponents track by $index'>
+                    <table border='1'>
+                        <tr>
+                            <td style='padding:5'>
+                                {{ 'CONNECTED_COMPONENT' | translate }}
+                            </td>
+                            <td style='padding:5'>
+                                <div style='display:none'>
+                                    {{ 'NODE_ID' | translate }}:
+                                    <select ng-model='connectedComponent.nodeId'
+                                            ng-change='labelController.authoringViewComponentChanged()'>
+                                        <option></option>
+                                        <option ng-repeat='item in labelController.idToOrder | toArray | orderBy : "order"'
+                                                value='{{item.$key}}'
+                                                ng-if='labelController.isApplicationNode(item.$key)'>{{labelController.getNodePositionAndTitleByNodeId(item.$key)}}</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    {{ 'COMPONENT_ID' | translate }}:
+                                    <select ng-model='connectedComponent.componentId'
+                                            ng-change='labelController.authoringViewComponentChanged()'>
+                                        <option></option>
+                                        <option ng-repeat='(componentIndex, component) in labelController.getComponentsByNodeId(connectedComponent.nodeId)'
+                                                ng-disabled='!labelController.componentHasWork(component)'
+                                                value='{{component.id}}'>
+                                            {{componentIndex + 1}}. {{component.type}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td style='padding:5'>
+                                <select ng-model='connectedComponent.updateOn'
+                                        ng-change='labelController.authoringViewComponentChanged()'>
+                                        <option ng-repeat='updateOnOption in labelController.connectedComponentUpdateOnOptions'
+                                                value='{{updateOnOption.value}}'>
+                                            {{updateOnOption.text}}
+                                        </option>
+                                </select>
+                            </td>
+                            <td style='padding:5'>
+                                <button ng-click='labelController.deleteConnectedComponent($index)'>{{ 'DELETE' | translate }}</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div ng-if='labelController.mode === "authoring"'>
+                <button ng-click='labelController.showRubricAuthoring = !labelController.showRubricAuthoring'>
+                    {{ 'EDIT_COMPONENT_RUBRIC' | translate }}
+                </button>
+                <div ng-show='labelController.showRubricAuthoring'>
+                    <summernote id='{{labelController.summernoteRubricId}}'
+                                ng-model='labelController.summernoteRubricHTML'
+                                ng-change='labelController.summernoteRubricHTMLChanged()'
+                                config='labelController.summernoteRubricOptions'
+                                ng-model-options='{ debounce: 1000 }'
+                                rows='10'
+                                cols='100'>
+                    </summernote>
+                </div>
+            </div>
+            <div ng-if='labelController.mode === "authoring"'>
+                <button ng-click='labelController.showJSON = !labelController.showJSON'>
+                        {{ 'SHOW_JSON' | translate }}
+                </button>
+                <br/>
+                <div ng-show='labelController.showJSON'>
+                    <textarea ng-model='labelController.authoringComponentContentJSONString'
+                              ng-change='labelController.advancedAuthoringViewComponentChanged()'
+                              ng-model-options="{ updateOn: 'blur' }"
+                              rows='20'
+                              cols='100'></textarea>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div ng-style='labelController.mode === "authoring" && {"border": "1px solid black", "padding": "20px"}'>
+        <div ng-if='labelController.mode === "authoring"'>
+            <h5>{{ 'PREVIEW' | translate }}</h5>
+        </div>
+        <div class="component__prompt">
+            <div class="component__prompt__content"><compile data='labelController.getPrompt()'></compile></div>
+            <possible-score max-score="labelController.componentContent.maxScore"
+                            ng-if="labelController.mode === 'student' && !labelController.latestAnnotations.score"></possible-score>
+        </div>
+        <div class="input-wrapper">
+            <md-button class="md-raised md-primary"
+                       ng-click="labelController.newLabelButtonClicked()"
+                       ng-disabled="labelController.isDisabled"
+                       ng-if="labelController.showNewLabelButton() && !labelController.createLabelMode && labelController.selectedLabel == null">New Label</md-button>
+            <span ng-show="labelController.createLabelMode">{{labelController.newLabelMessage}}</span>
+            <md-button class="md-raised md-primary"
+                       ng-click="labelController.cancelButtonClicked()"
+                       ng-disabled="labelController.isDisabled"
+                       ng-if="labelController.showCancelButton()">{{ 'CANCEL' | translate }}</md-button>
+            <span ng-show="labelController.editLabelMode">{{ 'label.labelText' | translate }}:</span>
+            <input type="text"
+                   id="editLabelTextInput"
+                   ng-model="labelController.selectedLabel.text.text"
+                   ng-show="labelController.editLabelMode"
+                   ng-change="labelController.selectedLabelTextChanged(labelController.selectedLabel.text, labelController.selectedLabel.text.text)"
+                   size="50"/>
+            <md-button class="md-raised md-primary"
+                       ng-click="labelController.saveLabelButtonClicked()"
+                       ng-disabled="labelController.isDisabled"
+                       ng-show="labelController.editLabelMode">{{ 'SAVE' | translate }}</md-button>
+            <md-button class="md-raised md-primary"
+                       ng-click="labelController.cancelLabelButtonClicked()"
+                       ng-disabled="labelController.isDisabled"
+                       ng-show="labelController.editLabelMode">{{ 'CANCEL' | translate }}</md-button>
+            <md-button class="md-raised md-primary"
+                       ng-click="labelController.deleteLabelButtonClicked()"
+                       ng-disabled="labelController.isDisabled"
+                       ng-show="labelController.editLabelMode">{{ 'DELETE' | translate }}</md-button>
+            <md-button class="md-accent md-primary"
+                    ng-click='labelController.snipImage($event)'
+                    ng-if='labelController.showSnipImageButton()'>
+                <md-icon> content_cut </md-icon>  {{ 'ADD_TO_NOTEBOOK' | translate:{label:labelController.notebookConfig.label} }}
+            </md-button>
+            <br/>
+            <div ng-show="labelController.componentContent.enableStudentUploadBackground">
+                {{ 'label.uploadBackgroundImage' | translate }}:
+                <input type="file"
+                       ng-show="labelController.componentContent.enableStudentUploadBackground"
+                       onchange="angular.element(this).scope().fileUploadChanged(this)"
+                       style="display:inline"/>
+            </div>
+            <br/>
+            <div id="canvasParent_{{labelController.canvasId}}">
+                <canvas id="{{labelController.canvasId}}" width="800" height="600" style="border:1px solid black;"></canvas>
+            </div>
+        </div>
+            <div class="component__actions" ng-show="labelController.attachments.length && labelController.isStudentAttachmentEnabled" layout="row" layout-wrap="true">
+                <div class="component__add-attachment">
+                    <md-button class="md-accent"
+                               ng-click="nodeController.showStudentAssets($event, component.id, labelController.isDisabled)">
+                        <md-icon>image</md-icon> <span>{{ 'label.addFile' | translate }}</span>
+                    </md-button>
+                </div>
+                <div class="component__attachment" ng-repeat="attachment in labelController.attachments">
+                    <img ng-src="{{attachment.iconURL}}" class="component__attachment__content" />
+                    <md-button class="component__attachment__delete" ng-click='labelController.removeAttachment(attachment)' title="Remove file"><md-icon>cancel</md-icon></md-button>
+                </div>
+            </div>
+            <div ng-if="labelController.isSaveButtonVisible || labelController.isSubmitButtonVisible"
+                 class="component__actions" layout="row" layout-align="start center">
+                <md-button class="md-raised md-primary"
+                           ng-click='labelController.saveButtonClicked()'
+                           ng-if='labelController.isSaveButtonVisible'
+                           ng-disabled='labelController.isDisabled || !labelController.isDirty'>{{ 'SAVE' | translate }}</md-button>
+                <md-button class="md-raised md-primary"
+                           ng-click='labelController.submitButtonClicked()'
+                           ng-if='labelController.isSubmitButtonVisible'
+                           ng-disabled='labelController.isDisabled || !labelController.isSubmitDirty || labelController.isSubmitButtonDisabled'>{{ 'SUBMIT' | translate }}</md-button>
+                <span ng-show="labelController.saveMessage.text"
+                      class="component__actions__info md-caption">
+                    {{labelController.saveMessage.text}} <span class="component__actions__more"><md-tooltip md-direction="top">{{ labelController.saveMessage.time | amDateFormat:'ddd, MMM D YYYY, h:mm a' }}</md-tooltip><span am-time-ago="labelController.saveMessage.time"></span></span>
+                </span>
+            </div>
+            <component-annotations ng-if="labelController.mode === 'student' || labelController.mode === 'authoring'"
+                                   annotations='labelController.latestAnnotations'
+                                   max-score="labelController.componentContent.maxScore"></component-annotations>
+        </div>
+        <component-grading ng-if="labelController.mode === 'grading'"
+                           node-id='labelController.nodeId'
+                           component-id='labelController.componentId'
+                           max-score="labelController.componentContent.maxScore"
+                           from-workgroup-id='teacherWorkgroupId'
+                           to-workgroup-id='workgroupId'
+                           component-state-id='componentState.id'
+                           active="true"></component-grading>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+{
+  "name": "dom-autoscroller",
+  "version": "1.4.1",
+  "description": "Auto scroll dom elements",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.js --standalone autoScroll > dist/dom-autoscroller.js",
+    "minify": "browserify index.js -d -p [minifyify --no-map] --standalone autoScroll > dist/dom-autoscroller.min.js",
+    "gadd": "git add dist",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "pre-commit": [
+    "build",
+    "minify",
+    "gadd"
+  ],
+  "keywords": [
+    "scrolling",
+    "DOM"
+  ],
+  "author": "Quentin Engles <hollowdoor99@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "create-point-cb": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "dragula": "^3.5.4",
+    "minifyify": "^7.3.3",
+    "precommit-hook": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hollowdoor/dom_autoscroller.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "index.js"
+  ]
+}

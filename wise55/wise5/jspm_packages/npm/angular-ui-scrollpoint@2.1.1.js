@@ -1,0 +1,1 @@
+module.exports = require("npm:angular-ui-scrollpoint@2.1.1/dist/scrollpoint.js");

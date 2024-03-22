@@ -1,0 +1,1 @@
+module.exports = require("npm:ng-file-upload@12.2.13/index");

@@ -1,0 +1,1 @@
+module.exports = require("npm:iframe-resizer@3.5.5/index.js");

@@ -1,0 +1,74 @@
+.md-toolbar-tools {
+    font-size: 18px;
+}
+
+.md-toolbar--wise {
+    min-height: $wise-toolbar-height;
+
+    .md-toolbar-tools {
+        height: $wise-toolbar-height;
+        max-height: $wise-toolbar-height;
+    }
+
+    .md-button.md-icon-button {
+        height: $wise-toolbar-height;
+        line-height: $wise-toolbar-height;
+        width: $wise-toolbar-height;
+    }
+}
+
+.md-toolbar--wise--sm {
+    .md-toolbar-tools {
+        padding: 0 8px;
+        font-size: $body-font-size-base;
+    }
+}
+
+.md-toolbar--sidenav {
+    background-color: color('gray-darkest') !important;
+
+    .md-toolbar-tools {
+        font-size: rem(1.6);
+        font-weight: 500;
+    }
+}
+
+.layout-toolbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: $md-toolbar-height;
+    transition: 250ms linear all;
+    //transition-delay: 250ms;
+    z-index: 3;
+}
+
+
+.layout-tools {
+    transition: 250ms linear all;
+    //transition-delay: 250ms;
+
+    &.ng-hide-add, &.ng-hide-add-active,
+    &.ng-hide-remove, &.ng-hide-remove-active  {
+        .layout-toolbar {
+            height: 0;
+            min-height: 0;
+
+            .md-toolbar-tools {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.layout-tools--step {
+    @media (min-width: $layout-breakpoint-xs) {
+        margin: 0 -16px 0 8px;
+    }
+}
+
+.toolbar-title {
+    margin-left: 8px;
+    font-size: rem(1.6);
+    font-weight: 500;
+}

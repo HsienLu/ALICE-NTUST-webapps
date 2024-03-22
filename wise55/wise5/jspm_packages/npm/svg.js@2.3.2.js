@@ -1,0 +1,1 @@
+module.exports = require("npm:svg.js@2.3.2/dist/svg.js");

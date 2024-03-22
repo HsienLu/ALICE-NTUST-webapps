@@ -1,0 +1,80 @@
+.list-item {
+    background-color: #ffffff;
+    border-bottom: 1px solid color('gray-lighter');
+
+    .autocomplete {
+        margin: 8px 0;
+        min-width: 250px;
+
+        @media only screen and (min-width: $layout-breakpoint-sm) {
+            min-width: 300px;
+        }
+
+        md-autocomplete-wrap {
+            background-color: #ffffff;
+
+            &:not(.md-menu-showing) {
+                box-shadow: none;
+                background-color: color('gray-lighter');
+            }
+        }
+    }
+
+    .md-subheader, &.md-subheader {
+        color: color('text');
+
+        md-icon {
+            vertical-align: middle;
+        }
+
+        .md-subheader-inner {
+            padding: 0;
+        }
+
+        .md-avatar {
+            margin-right: 8px;
+        }
+    }
+}
+
+.list-item--info {
+    &._md-button-wrap>div.md-button:first-child {
+        border-left: 4px solid color('info') !important;
+        margin-left: -4px;
+    }
+}
+
+.list-item--warn {
+    //background-color: lighten(color('warn'), 56%);
+
+    &._md-button-wrap>div.md-button:first-child {
+        border-left: 4px solid color('warn') !important;
+        margin-left: -4px;
+    }
+}
+
+.list-item--expanded {
+    border-bottom-width: 0;
+}
+
+.list-item--noclick, .list-item--noclick.md-button {
+    cursor: default;
+}
+
+.list-item--actions {
+    padding: 0 8px !important;
+}
+
+.list-item__subheader-button {
+    text-transform: none;
+    width: 100%;
+    padding: 8px 16px;
+    margin: 0;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.user-list {
+    font-size: rem(1.5);
+}

@@ -1,0 +1,19 @@
+{
+    "Table.componentTypeLabel": "Table",
+    "table.areYouSureYouWantToDecreaseTheNumberOfColumns": "Are you sure you want to decrease the number of columns?",
+    "table.areYouSureYouWantToDecreaseTheNumberOfRows": "Are you sure you want to decrease the number of rows?",
+    "table.areYouSureYouWantToDeleteThisColumn": "Are you sure you want to delete this column?",
+    "table.areYouSureYouWantToDeleteThisRow": "Are you sure you want to delete this row?",
+    "table.cellSize": "Cell Size",
+    "table.columns": "Columns",
+    "table.deleteColumn": "Delete Column",
+    "table.deleteRow": "Delete Row",
+    "table.importData": "Import Data",
+    "table.insertColumn": "Insert Column",
+    "table.insertRow": "Insert Row",
+    "table.rows": "Rows",
+    "table.size": "Size",
+    "table.sizeSymbol": "S",
+    "table.uneditable": "Uneditable",
+    "table.uneditableSymbol": "U"
+}
