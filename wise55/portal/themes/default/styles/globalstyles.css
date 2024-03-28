@@ -1107,6 +1107,7 @@ form {margin:0px; padding:0px;}
 
 #footerLogos {
 	/* float:right; */
+	
 	flex-wrap: wrap;
 }
 
@@ -1127,6 +1128,7 @@ form {margin:0px; padding:0px;}
     width:400px; */
 }
 .footer-left{
+	display:flex;
 	flex-grow: 1;
 }
 .footer-mid{
@@ -1136,6 +1138,7 @@ form {margin:0px; padding:0px;}
 	
 }
 .logo-group{
+	padding-left: 1rem;
 	display: flex;
 	flex-wrap: wrap;
 	

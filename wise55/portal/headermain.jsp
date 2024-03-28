@@ -1,3 +1,4 @@
+
 <div id="header" style="background: #BBE2EC;">
 	<div class="banner" style=>
 		<div class="logoHeader">
@@ -6,10 +7,11 @@
 			</a>
 		</div>
 		<div class="seclectMenu ">
-				<a style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select1" /></a>
-				<a style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select2" /></a>
-				<a style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select3" /></a>
-				<a style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select4" /></a>
+				<a href="http://140.122.146.33:778/projectlibrary" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select1" /></a>
+				<a href="http://140.122.146.33:778/pages/news.html" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select2" /></a>
+
+				<drop-down></drop-down>
+				
 		</div>
 		<sec:authorize access="!hasAnyRole('ROLE_USER')">
 			<script type="text/javascript">
@@ -23,11 +25,11 @@
 					return true;
 				}
 			</script>
-			<div id="userInfoBlock" class=" flex flex-col justify-center">
+			<div id="userInfoBlock" style="display: flex; flex-direction: column; justify-content: center;">
 				<form id="home" method="post"
 					action="${contextPath}/j_acegi_security_check"
 					onsubmit="return validateLoginForm()" autocomplete="off"
-					class="flex">
+					style="display: flex;">
 
 					<div id="signinForm" >
 						<div>
@@ -40,8 +42,8 @@
 						</div>
 					</div>
 
-					<div class="signinButton flex flex-col justify-center ml-4">						
-						<div id="submitSignIn" class="pb-1">
+					<div style="display: flex; flex-direction: column; justify-content: center; margin-left: 1rem;" >						
+						<div id="submitSignIn" style="padding-bottom: 0.25rem;">
 							<input type="submit" id="signInButton" name="signInButton" class="wisebutton smallbutton" value="<spring:message code="signIn"/>"></input>
 						</div>
 						<div id="accountMenu" class="guest">
@@ -146,7 +148,4 @@
 	</div>
 </div>
 
-<!-- 
-
-			<img src="${contextPath}/<spring:theme code="new-header-bg"/>" alt="<spring:message code="index.newHeader" />" style="width:100%"  />
- -->
+<%@ include file="./web-component/DorpDown.jsp"%>

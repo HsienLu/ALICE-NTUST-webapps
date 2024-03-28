@@ -36,7 +36,7 @@
 .FF_sidebar .dataTables_filter, .FF_sidebar .dataTables_length, 
 .FF_sidebar .dataTables_info, .FF_sidebar .dataTables_paginate,
 .FF_sidebar .custom_filter {
-	width: auto;
+	width: auto !important;
 	float: none;
 	text-align: left;
 	margin:0 .25em .25em;

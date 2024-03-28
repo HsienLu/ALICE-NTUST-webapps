@@ -23,8 +23,8 @@
 
 </head>
 <body>
+<%@ include file="headermain.jsp"%>
 <div id="pageWrapper">
-	<%@ include file="headermain.jsp"%>
 	<div id="page" style="margin-top:2rem;">
 		<div id="pageContent">
 			<div class="contentPanel">
