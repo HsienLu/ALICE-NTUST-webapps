@@ -3,3 +3,8 @@
 node_modules
 *.war
 *.properties
+
+wise.properties
+wise.properties
+./wise55/WEB-INF/classes/wise.properties
+wise55/WEB-INF/classes/wise.properties
