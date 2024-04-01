@@ -6,7 +6,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 <%@ include file="../favicon.jsp"%>
-<title><spring:message code="pages.wise-advantage.theWISEAdvantage" /></title>
+<title><spring:message code="wiseTitle" /></title>
 
 <link href="${contextPath}/<spring:theme code="globalstyles"/>" rel="stylesheet" type="text/css" />
 <link href="${contextPath}/<spring:theme code="homepagestylesheet"/>" rel="stylesheet" type="text/css" />
@@ -27,65 +27,39 @@
 	<div id="page">
 
 		<div id="pageContent">
-			<div class="contentPanel" style="margin-top:1rem;">
+			<h4-title-text titleText='<spring:message code="index.advantage.title"/>' ></h4-title-text>
 
-				<div class="panelHeader">
-				<spring:message code="pages.wise-advantage.top10ReasonsForUsingWISE" />
-
-				</div>
-
-				<div class="panelContent">
-					<div class="featuresShowcase right">
-						<img src="${contextPath}/<spring:theme code="library"/>" alt="<spring:message code="pages.wise-advantage.inquiryLearningAlt" />" />
-						<div class="featureContentHeader"><spring:message code="pages.wise-advantage.1inquiryBasedLearning" /></div>
-						<div class="featureContent">
-							<p><spring:message code="pages.wise-advantage.inquiryLearningParagraphPart1" /> 
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="featuresShowcase left">
-						<img src="${contextPath}/<spring:theme code="standards_science"/>" alt="<spring:message code="pages.wise-advantage.wiseLibraryAlt" />" />
-						<div class="featureContent">
-							<div class="featureContentHeader"><spring:message code="pages.wise-advantage.2growingLibrary" /></div>
-							<p><spring:message code="pages.wise-advantage.growingLibraryParagraphPart1" /></p>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="featuresShowcase right">
-						<img src="${contextPath}/<spring:theme code="teacher_tools"/>" alt="<spring:message code="pages.wise-advantage.standardsBasedScienceAlt" />" />
-						<div class="featureContentHeader"><spring:message code="pages.wise-advantage.3standardsBasedScience" /></div>
-						<div class="featureContent">
-							<p><spring:message code="pages.wise-advantage.standardsBasedScienceParagraph" /></p>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="featuresShowcase left">
-						<img style="width:400px;height:auto" src="${contextPath}/<spring:theme code="learning-tool-interface"/>" alt="<spring:message code="pages.wise-advantage.teacherToolsAlt" />" />
-						<div class="featureContent">
-							<div class="featureContentHeader"><spring:message code="pages.wise-advantage.4comprehensiveInstructionalSupport" /></div>
-							<p><spring:message code="pages.wise-advantage.comprehensiveInstructionalSupportParagraphPart1" /></p>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div class="featuresShowcase right">
-						<img src="${contextPath}/<spring:theme code="diverse_learners"/>" alt="<spring:message code="pages.wise-advantage.researchAndPracticeAlt" />" />
-						<div class="featureContentHeader"><spring:message code="pages.wise-advantage.5basedOnResearch" /></div>
-						<div class="featureContent">
-							<p><spring:message code="pages.wise-advantage.basedOnResearchParagraphPart1" /></p>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-						<div style="clear:both;"></div>
-					</div>							
-					</div>
-				</div>
-			</div>
-
+			<page-content-card 
+			picSrc='${contextPath}/<spring:theme code="wise-advantage-pic1" />' 
+			titleText='<spring:message code="index.advantage.subtitle1"/>'
+			contentText="<spring:message code='index.advantage.content1'/>"
+			flexDirection="row"
+			></page-content-card>
+			<page-content-card 
+			picSrc='${contextPath}/<spring:theme code="wise-advantage-pic2" />' 
+			titleText='<spring:message code="index.advantage.subtitle2"/>'
+			contentText="<spring:message code='index.advantage.content2'/>"
+			flexDirection="row-reverse"
+			></page-content-card>
+			<page-content-card 
+			picSrc='${contextPath}/<spring:theme code="wise-advantage-pic3" />' 
+			titleText='<spring:message code="index.advantage.subtitle3"/>'
+			contentText="<spring:message code='index.advantage.content3'/>"
+			flexDirection="row"
+			></page-content-card>
+			<page-content-card 
+			picSrc='${contextPath}/<spring:theme code="wise-advantage-pic4" />' 
+			titleText='<spring:message code="index.advantage.subtitle4"/>'
+			contentText="<spring:message code='index.advantage.content4'/>"
+			flexDirection="row-reverse"
+			></page-content-card>
 		</div>
 		<div style="clear: both;"></div>
 	</div>   <!-- End of page -->
 
 	<%@ include file="../footer.jsp"%>
 </div>
+<%@ include file="../web-component/H4TitleText.jsp"%>
+<%@ include file="../web-component/PagesContentCard.jsp"%>
 </body>
 </html>

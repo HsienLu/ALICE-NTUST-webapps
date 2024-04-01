@@ -2,3 +2,4 @@
 *.swf
 node_modules
 *.war
+*.properties

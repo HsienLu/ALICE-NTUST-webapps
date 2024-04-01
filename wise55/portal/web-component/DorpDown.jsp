@@ -73,7 +73,7 @@
             this.dropbtn=document.createElement('button');
             this.dropdown.appendChild(this.dropbtn);
             this.dropbtn.className = "dropbtn";
-            this.dropbtn.textContent = "<spring:message code="index.menu.select3" />";
+            this.dropbtn.textContent = "<spring:message code='index.menu.select3' />";
 
             this.dropdownContent=document.createElement('div');
             this.dropdown.appendChild(this.dropdownContent);
@@ -82,18 +82,18 @@
             
             this.a1=document.createElement('a');
             this.dropdownContent.appendChild(this.a1);
-            this.a1.href = "#";
-            this.a1.textContent = "<spring:message code="index.menu.subselect1" />";
+            this.a1.href = "${contextPath}/pages/wise-advantage.html";
+            this.a1.textContent = "<spring:message code='index.menu.subselect1' />";
 
             this.a2=document.createElement('a');
             this.dropdownContent.appendChild(this.a2);
-            this.a2.href = "#";
-            this.a2.textContent = "<spring:message code="index.menu.subselect2" />";
+            this.a2.href = "${contextPath}/pages/features.html";
+            this.a2.textContent = "<spring:message code='index.menu.subselect2' />";
 
             this.a3=document.createElement('a');
             this.dropdownContent.appendChild(this.a3);
-            this.a3.href = "#";
-            this.a3.textContent = "<spring:message code="index.menu.subselect3" />";
+            this.a3.href = "${contextPath}/contact/contactwise.html";
+            this.a3.textContent = "<spring:message code='index.menu.subselect3' />";
 
             
 
