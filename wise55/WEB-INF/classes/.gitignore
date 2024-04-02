@@ -1,0 +1,8 @@
+*.mp4
+*.swf
+node_modules
+*.war
+*.properties
+
+wise.properties
+wise.properties

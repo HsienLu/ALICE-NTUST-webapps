@@ -8,3 +8,4 @@ wise.properties
 wise.properties
 ./wise55/WEB-INF/classes/wise.properties
 wise55/WEB-INF/classes/wise.properties
+/opt/tomcat/webapps/wise55/WEB-INF/classes/wise.properties
