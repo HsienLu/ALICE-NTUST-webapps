@@ -35,3 +35,5 @@
 <c:set var="locale" value="${ empty sessionLocale ? pageContext.request.locale : sessionLocale }" />
 <c:set var="textDirection" value="${'iw' == locale ? 'rtl' : 'ltr'}" />
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<!-- 解決編碼問題 -->
+<%@page pageEncoding='UTF-8'  %>

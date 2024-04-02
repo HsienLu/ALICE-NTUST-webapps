@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<%@page pageEncoding='UTF-8'  %>
 <%@ include file="../favicon.jsp"%>
 <title><spring:message code="pages.gettingstarted.title" /></title>
 
@@ -16,7 +17,7 @@
 </c:if>
 
 <script src="${contextPath}/<spring:theme code="jquerysource"/>" type="text/javascript"></script>
-<script src="${contextPath}/<spring:theme code="superfishsource"/>" type="text/javascript"></script>
+<script src="${contextPath}/<spring:theme code='superfishsource'/>" type="text/javascript"></script>
 </head>
 <body>
 <spring:htmlEscape defaultHtmlEscape="false">
@@ -28,31 +29,31 @@
 	<div id="page">
 
 		<div id="pageContent">
+            <h4-title-text titleText="<spring:message code='ALICE.terms.title'/>"></h4-title-text>
+            <h5 style="
+            color: blue; 
+            font-size: 1.5rem;
+            font-weight: 600;
+            "
+            ><spring:message code='ALICE.terms.subtitle'/></h5>
 
-			<div class="contentPanel">
-				<div class="panelHeader"><spring:message code="teacher.termsofuse.wiseUsageAgreement" /></div>
-				<div class="panelContent">
-
-                    <div class="sectionContent"><p class="info"><spring:message code="teacher.termsofuse.theFollowingInformation"/></p></div>
-
-                    <div class="sectionContent">
-                        <p><spring:message code="teacher.termsofuse.beforeProceeding"/></p>
-                        <p><spring:message code="teacher.termsofuse.byJoining"/></p>
-                        <p><spring:message code="teacher.termsofuse.byChecking"/></p>
-                        <p><spring:message code="teacher.termsofuse.weDoNotAnticipate"/></p>
-                        <p><spring:message code="teacher.termsofuse.weWillNotReleaseYourIdentity"/></p>
-                        <p><spring:message code="teacher.termsofuse.inTheInterest"/>&nbsp;(<a href="${contextPath}/contact/contactwise.html" target="_blank"><spring:message code="teacher.termsofuse.contactWise"/></a>)&nbsp;<spring:message code="teacher.termsofuse.andWeWillInvestigate"/></p>
-                        <p><spring:message code="teacher.termsofuse.finallyYourParticipation"/></p>
-                        <p><spring:message code="teacher.termsofuse.weValueYourEnthusiastic"/></p>
-                        <p><spring:message code="teacher.termsofuse.sincerely"/></p>
-                        <p><spring:message code="teacher.termsofuse.marciaLinnProjectDirector"/> &nbsp;<a href="mailto:mclinn@berkeley.edu">email</a></p>
-                    </div>
-				</div>
-			</div>
+<%
+    for(int i=1; i<11; i++){
+%>
+        <c:set var="code" value='<%= "ALICE.terms.content" + i %>' />
+        <p style="
+        font-size: 1rem;
+        color:#404040;
+        margin-block:1rem;
+        "><spring:message code="${code}"/></p>
+<%
+    }
+%>
+            
 		</div>
 		<div style="clear: both;"></div>
 	</div>   <!-- End of page-->
-
+    <%@ include file="../web-component/H4TitleText.jsp"%> 
 	<%@ include file="../footer.jsp"%>
 </div>
 </spring:escapeBody>

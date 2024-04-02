@@ -103,12 +103,12 @@
 					</h4>
 				</div>
 				<div class="curse-category">
-					<curse-card data-aos="zoom-in" titleText="實地考察" picSrc="${contextPath}/<spring:theme code="curse-category-pic1"/>"></curse-card>
-					<curse-card data-aos="zoom-in" titleText="模擬實驗" picSrc="${contextPath}/<spring:theme code="curse-category-pic2"/>"></curse-card>
-					<curse-card data-aos="zoom-in" titleText="社會議題" picSrc="${contextPath}/<spring:theme code="curse-category-pic3"/>"></curse-card>
-					<curse-card data-aos="zoom-in" titleText="氣候變遷" picSrc="${contextPath}/<spring:theme code="curse-category-pic4"/>"></curse-card>
+					<curse-card data-aos="zoom-in" titleText="實地考察" picSrc="${contextPath}/<spring:theme code='curse-category-pic1'/>"></curse-card>
+					<curse-card data-aos="zoom-in" titleText="模擬實驗" picSrc="${contextPath}/<spring:theme code='curse-category-pic2'/>"></curse-card>
+					<curse-card data-aos="zoom-in" titleText="社會議題" picSrc="${contextPath}/<spring:theme code='curse-category-pic3'/>"></curse-card>
+					<curse-card data-aos="zoom-in" titleText="氣候變遷" picSrc="${contextPath}/<spring:theme code='curse-category-pic4'/>"></curse-card>
 				</div>
-				<a  href="/"
+				<a  href="${contextPath}/projectlibrary"
 					style="display: block; padding-top:0.25rem;margin:0 auto;margin-block:1.5rem; font-size: 2rem;line-height: 1.5;color: #40A2E3;
 					text-decoration: underline;
     				font-weight: bold !important;text-align: center;"><spring:message code="index.browseCurricula"/>
