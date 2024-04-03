@@ -45,6 +45,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <%--引入Tailwind --%>
 <script src="/portal/javascript/tailwind341.js" type="text/javascript"></script>
+<meta name="google-site-verification" content="lTYOR_6mIkD0EqfKePXJoCgCLGOiiZJvfLej5F_t_JI" />
 </head>
 <body>
 	<%@ include file="headermain.jsp"%>

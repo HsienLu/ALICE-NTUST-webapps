@@ -17,22 +17,53 @@
 
 <script src="${contextPath}/<spring:theme code="jquerysource"/>" type="text/javascript"></script>
 <script src="${contextPath}/<spring:theme code="superfishsource"/>" type="text/javascript"></script>
-
+<%@page pageEncoding="UTF-8" %>
 <style type="text/css">
 #tableOfContents {
-  border:1px dotted;
-  padding:10px;
-  width:300px;
-  margin-bottom:10px;
+  width: fit-content;
+  background: #D9D9D9;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
-#tableOfContents > ul > li {
-  padding: 5px 0px 0px 10px;
+#tableOfContents > ul {
+   padding-left: 1rem;
+   color:#404040;
+   list-style: disc;
 }
+#tableOfContents > ul > li {
+	color:#404040;
+	padding-top: 0.25rem;
+}
+
+#tableOfContents > ul > li> a {
+	color:#404040;
+}
+
 
 #tableOfContentsHeader {
-  font-weight:bold;
+	font-size: 1.25rem;
+	font-weight:bold;
+	margin-bottom: 0.5rem;
 }
+.sectionHead {
+	font-size: 1.25rem;
+	font-weight:bold;
+	margin-top: 1rem;
+	color: blue;
+}
+
+.sectionContent > .question {
+	color:#404040;
+	font-weight: 900;
+
+}
+.sectionContent > .answer *{
+	color:#404040;
+	font-weight: 400;
+
+}
+
 </style>
 </head>
 <body>
@@ -44,18 +75,15 @@
 
 	<div id="page">
 
-		<div id="pageContent">
-
-			<div class="contentPanel">
-			<div class="panelHeader"><spring:message code="pages.teacherfaq.wiseTeacherFrequentlyAskedQuestions" /> <span style="float:right;"><a class="printLesson" onClick="window.print();return false"><spring:message code="print" /></a></span></div>
-			<div class="panelContent">
+		<div id="pageContent" >
+			<h4-title-text titleText="ALICE 教師常見問題"></h4-title-text>
+			<div class="panelContent" style="padding: 0 !important;">
 				<div id="tableOfContents">
-					<span id="tableOfContentsHeader"><spring:message code="tableOfContents" /></span>
-					<ul>
-						<li><a href="#studentManagement"><spring:message code="pages.teacherfaq.studentManagement" /></a></li>
+					<h5 id="tableOfContentsHeader"><spring:message code="tableOfContents" /></h5>
+					<ul >
+						<li  ><a href="#studentManagement"><spring:message code="pages.teacherfaq.studentManagement" /></a></li>
 						<li><a href="#projectManagement"><spring:message code="pages.teacherfaq.projectManagement" /></a></li>
 						<li><a href="#assessmentOfStudentWork"><spring:message code="pages.teacherfaq.assessmentOfStudentWork" /></a></li>
-						<li><a href="#realtime"><spring:message code="pages.teacherfaq.realTimeClassroomMonitor" /></a></li>
 						<li><a href="#technicalQuestions"><spring:message code="pages.teacherfaq.technicalQuestions" /></a></li>
 					</ul>
 				</div>
@@ -77,19 +105,6 @@
 						    <li><spring:message code="pages.teacherfaq.studentForgotUsernameOrPasswordAnswerPart1" /></li>
 						    <li><spring:message code="pages.teacherfaq.studentForgotUsernameOrPasswordAnswerPart2" /></li>
 						    <li><spring:message code="pages.teacherfaq.studentForgotUsernameOrPasswordAnswerPart3" /></li>
-						</ul>
-					</div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.howChangeStudentTeamQuestion" /></div>
-					<div class="answer">
-						<ul>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart1" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart2" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart3" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart4" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart5" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart6" /></li>
-						    <li><spring:message code="pages.teacherfaq.howChangeStudentTeamAnswerPart7" /></li>
 						</ul>
 					</div>
 
@@ -125,16 +140,6 @@
 						<spring:message code="pages.teacherfaq.whenShouldISetUpRunAnswer" />
 					</div>
 
-					<div class="question"><spring:message code="pages.teacherfaq.howLongRunTakeQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.howLongRunTakeAnswer" />
-					</div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.canIShortenProjectQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.canIShortenProjectAnswer" />
-					</div>
-
 					<div class="question"><spring:message code="pages.teacherfaq.howReviewAndGradeWorkQuestion" /></div>
 					<div class="answer">
 						<ul>
@@ -156,29 +161,39 @@
 
 					<div class="question"><spring:message code="pages.teacherfaq.whereFindLessonPlansAndStandardsQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.whereFindLessonPlansAndStandardsAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.whereFindLessonPlansAndStandardsAnswer" />
+							</li>
+						</ul>
 					</div>
 
 					<div class="question"><spring:message code="pages.teacherfaq.howFitProjectIntoMyCurriculumQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.howFitProjectIntoMyCurriculumAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.howFitProjectIntoMyCurriculumAnswer" />
+							</li>
+						</ul>
 					</div>
 
 					<div class="question"><spring:message code="pages.teacherfaq.whatIfRunOutOfLabTimeQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.whatIfRunOutOfLabTimeAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.whatIfRunOutOfLabTimeAnswer" />
+							</li>
+						</ul>
 					</div>
 
 					<div class="question"><spring:message code="pages.teacherfaq.iDoNotRememberTeacherAccessCodeQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.iDoNotRememberTeacherAccessCodeAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.iDoNotRememberTeacherAccessCodeAnswer" />
+							</li>
+						</ul>
 					</div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.whyIsNavigationBarDisappearingQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.whyIsNavigationBarDisappearingAnswer" />
-					</div>
-
 				</div>
 
 				<div class="sectionHead" id="assessmentOfStudentWork"><spring:message code="pages.teacherfaq.assessmentOfStudentWork" /></div>
@@ -191,57 +206,40 @@
 						</ul>
 					</div>
 
-					<div class="question"><spring:message code="pages.teacherfaq.whatShouldILookForInStudentAnswersQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.whatShouldILookForInStudentAnswersAnswer" /><br/><br/>
-						<a href="${contextPath}/<spring:theme code="sample_rubric"/>"><spring:message code="pages.teacherfaq.sampleRubric" /></a>
-					</div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.howEncourageStudentsReviewNotesAndCommentsQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.howEncourageStudentsReviewNotesAndCommentsAnswer" />
-					</div>
-
 					<div class="question"><spring:message code="pages.teacherfaq.howFindTimeToGradeAllStudentWorkQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.howFindTimeToGradeAllStudentWorkAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.howFindTimeToGradeAllStudentWorkAnswer" />
+							</li>
+						</ul>
 					</div>
 
-				</div>
-
-				<div class="sectionHead" id="realtime"><spring:message code="pages.teacherfaq.realTimeClassroomMonitor" /></div>
-				<div class="sectionContent">
-
-					<div class="question"><spring:message code="pages.teacherfaq.whatIsRealTimeClassroomMonitorQuestion" /></div>
-					<div class="answer"><spring:message code="pages.teacherfaq.whatIsRealTimeClassroomMonitorAnswer" /></div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.whatAreTechnicalRequirementsForRealTimeClassroomMonitorQuestion" /></div>
-					<div class="answer"><spring:message code="pages.teacherfaq.whatAreTechnicalRequirementsForRealTimeClassroomMonitorAnswer" /></div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.howTurnOnOffRealTimeClassroomMonitorQuestion" /></div>
-					<div class="answer"><spring:message code="pages.teacherfaq.howTurnOnOffRealTimeClassroomMonitorAnswer" /></div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.doesRealTimeClassroomMonitorWorkOnTabletQuestion" /></div>
-					<div class="answer"><spring:message code="pages.teacherfaq.doesRealTimeClassroomMonitorWorkOnTabletAnswer" /></div>
-
-					<div class="question"><spring:message code="pages.teacherfaq.canRealTimeClassroomMonitorPauseStudentScreensQuestion" /></div>
-					<div class="answer"><spring:message code="pages.teacherfaq.canRealTimeClassroomMonitorPauseStudentScreensAnswer" /></div>
 				</div>
 
 				<div class="sectionHead" id="technicalQuestions"><spring:message code="pages.teacherfaq.technicalQuestions" /></div>
 				<div class="sectionContent">
 					<div class="question"><spring:message code="pages.teacherfaq.websiteWontLoadQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.websiteWontLoadAnswerPart1" />
-						<a href="${contextPath}/pages/check.html"><spring:message code="pages.teacherfaq.wiseCompatibilityTest" /></a><br/><br/>
-
-						<spring:message code="pages.teacherfaq.websiteWontLoadAnswerPart2" />
-						<a target=_blank href="http://www.wikihow.com/Clear-Your-Browser's-Cache"><spring:message code="pages.teacherfaq.howToClearCache" /></a>
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.websiteWontLoadAnswerPart1" />
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.websiteWontLoadAnswerPart2" />
+							</li>
+						</ul>
 					</div>
 
 					<div class="question"><spring:message code="pages.teacherfaq.howManyComputersDoINeedQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.howManyComputersDoINeedAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.howManyComputersDoINeedAnswer" />
+							</li>
+						</ul>
 					</div>
 
 					<div class="question"><spring:message code="pages.teacherfaq.whatIfTroubleLoggingInQuestion" /></div>
@@ -252,20 +250,19 @@
 						</ul>
 					</div>
 
-					<div class="question"><spring:message code="pages.teacherfaq.wiseInAnotherLanguageQuestion" /></div>
-					<div class="answer">
-						<spring:message code="pages.teacherfaq.wiseInAnotherLanguageAnswer" />
-					</div>
-
 					<div class="question"><spring:message code="pages.teacherfaq.whoContactWhenHaveProblemQuestion" /></div>
 					<div class="answer">
-						<spring:message code="pages.teacherfaq.whoContactWhenHaveProblemAnswer" />
+						<ul>
+							<li>
+								<spring:message code="pages.teacherfaq.whoContactWhenHaveProblemAnswer" />
+							</li>
+						</ul>
 					</div>
 
 				</div>
 
 				</div>  <!--  end of panelContent -->
-			</div>  <!--  end of contentPanel -->
+			
 
 		</div>
 
@@ -276,5 +273,6 @@
 </div>
 </spring:escapeBody>
 </spring:htmlEscape>
+	<%@ include file="../web-component/H4TitleText.jsp"%>
 </body>
 </html>

@@ -1902,10 +1902,10 @@
 						$(window).on('scroll.sticky',function() {
 					        var windowTop = $(window).scrollTop();
 					        if (windowTop > elTop) {
-					        	$stickyEl.addClass('sticky');
+					        	$stickyEl.addClass('');
 					        	$stickyEl.css('width',width);
 					        } else {
-					        	$stickyEl.removeClass('sticky');
+					        	$stickyEl.removeClass('');
 					        	$stickyEl.css('width','auto');
 					        }
 					    });
@@ -2022,16 +2022,17 @@
 		}
 
 		// Make top header scroll with page
+		//有把addclass拿掉有需要再放回去
 		var $stickyEl = $('.dataTables_wrapper .top');
 		var elTop = $stickyEl.offset().top,
 		width = $stickyEl.width();
 		$(window).on('scroll.sticky',function() {
 	        var windowTop = $(window).scrollTop();
 	        if (windowTop > elTop) {
-	        	$stickyEl.addClass('sticky');
+	        	$stickyEl.addClass('');
 	        	$stickyEl.css('width',width);
 	        } else {
-	        	$stickyEl.removeClass('sticky');
+	        	$stickyEl.removeClass('');
 	        	$stickyEl.css('width','auto');
 	        }
 	    });

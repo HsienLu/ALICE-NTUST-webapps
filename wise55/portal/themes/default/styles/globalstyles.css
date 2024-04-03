@@ -233,6 +233,7 @@ img.icon {
 	margin:0 auto;
 	/* padding:1em 0 0; */
 	/* min-width:1025px; */
+	min-height: 100vh; 
 }
 
 #header, #footer {
@@ -371,6 +372,7 @@ a#name img{
 #page {
 	/*background-color: #FFF9EF;*/
 	/* padding:.5em 0; */
+	min-height: 100vh;
 }
 
 #pageContent {
@@ -378,6 +380,7 @@ a#name img{
 	margin:0 auto;
 	padding:1em;
 	padding-top: 0;
+	min-height: 100vh;
 }
 
 .infoContent {
