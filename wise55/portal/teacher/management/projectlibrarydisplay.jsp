@@ -92,7 +92,7 @@
 											</c:choose>
 												<div class="projectOverview">
 													<div class="projectHeader">
-														<div class="projectInfo">
+														<div class="projectInfo" >
 															<c:set var="bookmarked" value="false" />
 															<c:forEach var="bookmark" items="${bookmarkedProjectsList}">
 																<c:if test="${bookmark.id == project.id}">
@@ -152,6 +152,7 @@
 																<c:if test="${project.metadata.gradeRange != null && project.metadata.gradeRange != ''}"><spring:message code="teacher.projects.projectinfo.meta_grades" /> ${project.metadata.gradeRange} | </c:if>
 																<c:if test="${project.metadata.totalTime != null && project.metadata.totalTime != ''}">${project.metadata.totalTime} | </c:if>
 																<c:if test="${project.metadata.language != null && project.metadata.language != ''}">${project.metadata.language}</c:if>
+																
 																<div style="float:right;">
 																	<c:choose>
 																		<c:when test="${hasRun && (isChild || isChildNoRoot)}">
@@ -162,6 +163,7 @@
 																		</c:otherwise>
 																	</c:choose>
 																</div>
+
 															</div>
 															<div data-id="${project.id}" class="summaryText">
 															<c:if test="${project.metadata.summary != null && project.metadata.summary != ''}">
@@ -339,7 +341,7 @@
 																	<c:set var="bookmarked" value="true" />
 																</c:if>
 															</c:forEach>
-															<a data-id="${project.id}" class="bookmark ${bookmarked} tooltip" title="<spring:message code="toggleFavorite" />"></a>
+
 															<a class="projectTitle" data-id="${project.id}">${project.name}</a>
 															<span>(<spring:message code="id_label" /> ${project.id})</span>
 														</div>
@@ -518,7 +520,7 @@
 							</c:forEach>
 						</c:when>
 					</c:choose>
-
+					<!-- 改這裡 -->
 					<c:choose>
 						<c:when test="${fn:length(libraryProjectsList) > 0}">
 							<c:forEach var="project" items="${libraryProjectsList}">
@@ -549,7 +551,9 @@
 											</c:forEach>
 											<div class="${projectClass}" data-id="${project.id}">
 												<div class="projectOverview">
-													<div class="projectHeader">
+													<div class="projectThumb" thumbUrl="${projectThumbMap[project.id]}"><img src='${contextPath}/<spring:theme code="project_thumb"/>' alt='thumb'></div>
+													<div class="summaryInfo">
+													<div class="projectHeader" style="display: flex;">
 														<div class="projectInfo">
 															<c:set var="bookmarked" value="false" />
 															<c:forEach var="bookmark" items="${bookmarkedProjectsList}">
@@ -557,7 +561,10 @@
 																	<c:set var="bookmarked" value="true" />
 																</c:if>
 															</c:forEach>
-															<a data-id="${project.id}" class="bookmark ${bookmarked} tooltip" title="<spring:message code="toggleFavorite" />"></a>
+															<% /* 把星星拿掉
+																<a data-id="${project.id}" class="bookmark ${bookmarked} tooltip" title="<spring:message code="toggleFavorite" />"></a>
+															*/ %>
+
 															<a class="projectTitle" data-id="${project.id}">${project.name}</a>
 															<span>(<spring:message code="id_label" /> ${project.id})</span>
 														</div>
@@ -581,10 +588,15 @@
 															</ul>
 														</div>
 													</div>
+													<% /*
+													去掉空白
 													<div style="clear:both;"></div>
+													*/ %>
 													<div class="projectSummary">
+														<%/* 移到projectHeader去留黨
 														<div class="projectThumb" thumbUrl="${projectThumbMap[project.id]}"><img src='${contextPath}/<spring:theme code="project_thumb"/>' alt='thumb'></div>
 														<div class="summaryInfo">
+														*/%>
 															<c:if test="${fn:length(project.sharedowners) > 0}">
 																<div class="sharedIcon" style="float:right;">
 																	<img src="${contextPath}/<spring:theme code="shared"/>" alt="shared project" />
@@ -604,9 +616,11 @@
 																<c:if test="${project.metadata.gradeRange != null && project.metadata.gradeRange != ''}"><spring:message code="teacher.projects.projectinfo.meta_grades" /> ${project.metadata.gradeRange} | </c:if>
 																<c:if test="${project.metadata.totalTime != null && project.metadata.totalTime != ''}">${project.metadata.totalTime} | </c:if>
 																<c:if test="${project.metadata.language != null && project.metadata.language != ''}">${project.metadata.language}</c:if>
+																<% /* 把日期拿掉
 																<div style="float:right;">
 																	<spring:message code="teacher.management.projectlibrarydisplay.created" /> <fmt:formatDate value="${project.dateCreated}" type="date" dateStyle="medium" />
 																</div>
+																*/ %>
 															</div>
 															<div data-id="${project.id}" class="summaryText">
 															<c:if test="${project.metadata.summary != null && project.metadata.summary != ''}">
@@ -690,7 +704,7 @@
 							</c:forEach>
 						</c:when>
 					</c:choose>
-
+					<%-- 改這裡 --%>
 				</tbody>
 			</table>
 		</div>
