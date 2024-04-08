@@ -29,6 +29,7 @@
 		<div id="pageContent">
 			<div class="contentPanel">
 				<div class="panelHeader">
+					
 					<spring:message code="teacher.management.library.title" />
 				</div>
 				<div class="panelContent">
@@ -40,5 +41,6 @@
 	</div>   <!-- End of page -->
 	<%@ include file="footer.jsp"%>
 </div>
+
 </body>
 </html>

@@ -54,13 +54,13 @@
 	</div>
 	<div id="page">
 		<div class="slider-wrapper theme-wise">
-   				 		<div class="ribbon"></div>
-						<div id="showcaseSlider">
-						    <img src="${contextPath}/<spring:theme code="index-herosection-slider1-aboutAlice"/>" alt="<spring:message code="index.whatIsWise" />" />
-						    <img src="${contextPath}/<spring:theme code="index-herosection-slider2-actiontodo"/>" alt="<spring:message code="index.curriculumBased" />" />
-						    <img src="${contextPath}/<spring:theme code="index-herosection-slider3-actionclass"/>" alt="<spring:message code="index.inquiryProjects" />" />
-						    <img src="${contextPath}/<spring:theme code="index-herosection-slider4-studentattent"/>" alt="<spring:message code="index.studentEngagement" />" />
-						</div>
+		<div class="ribbon"></div>
+			<div id="showcaseSlider">
+			    <img src="${contextPath}/<spring:theme code="index-herosection-slider1-aboutAlice"/>" alt="<spring:message code="index.whatIsWise" />" />
+			    <img src="${contextPath}/<spring:theme code="index-herosection-slider2-actiontodo"/>" alt="<spring:message code="index.curriculumBased" />" />
+			    <img src="${contextPath}/<spring:theme code="index-herosection-slider3-actionclass"/>" alt="<spring:message code="index.inquiryProjects" />" />
+			    <img src="${contextPath}/<spring:theme code="index-herosection-slider4-studentattent"/>" alt="<spring:message code="index.studentEngagement" />" />
+			</div>
 		</div>
 		<div id="pageContent">
 			<div class="showcase">
