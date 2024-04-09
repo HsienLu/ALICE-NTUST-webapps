@@ -553,7 +553,7 @@
 												<div class="projectOverview">
 													<div class="projectThumb" thumbUrl="${projectThumbMap[project.id]}"><img src='${contextPath}/<spring:theme code="project_thumb"/>' alt='thumb'></div>
 													<div class="summaryInfo">
-													<div class="projectHeader" style="display: flex;">
+														<div class="projectHeader" style="display: flex;">
 														<div class="projectInfo">
 															<c:set var="bookmarked" value="false" />
 															<c:forEach var="bookmark" items="${bookmarkedProjectsList}">
@@ -565,7 +565,7 @@
 																<a data-id="${project.id}" class="bookmark ${bookmarked} tooltip" title="<spring:message code="toggleFavorite" />"></a>
 															*/ %>
 
-															<a class="projectTitle" data-id="${project.id}">${project.name}</a>
+															<a class="projectTitle" style="color: #404040;font-weight: 900;" data-id="${project.id}">${project.name}</a>
 															<span>(<spring:message code="id_label" /> ${project.id})</span>
 														</div>
 														<div class="projectTools">
@@ -588,40 +588,16 @@
 															</ul>
 														</div>
 													</div>
-													<% /*
-													去掉空白
+													<% /*去掉空白
 													<div style="clear:both;"></div>
 													*/ %>
-													<div class="projectSummary">
-														<%/* 移到projectHeader去留黨
-														<div class="projectThumb" thumbUrl="${projectThumbMap[project.id]}"><img src='${contextPath}/<spring:theme code="project_thumb"/>' alt='thumb'></div>
-														<div class="summaryInfo">
-														*/%>
-															<c:if test="${fn:length(project.sharedowners) > 0}">
-																<div class="sharedIcon" style="float:right;">
-																	<img src="${contextPath}/<spring:theme code="shared"/>" alt="shared project" />
-																	<spring:message code="teacher.management.projectlibrarydisplay.ownedBy" />
-																	<c:out value="${project.owner.userDetails.firstname}" />
-											  						<c:out value="${project.owner.userDetails.lastname}" />
-																</div>
-															</c:if>
-															<c:if test="${fn:contains(projectClass,'wise')}">
-																<div class="libraryIcon"><img src="${contextPath}/<spring:theme code="open_book"/>" alt="library project" /> <spring:message code="teacher.management.projectlibrarydisplay.libraryProject" /></div>
-															</c:if>
-															<c:if test="${fn:contains(projectClass,'teachershared')}">
-																<div class="libraryIcon"><img src="${contextPath}/<spring:theme code="shared"/>" alt="teacher shared project" /> <spring:message code="teacher.management.projectlibrarydisplay.teacherSharedProject" /> (<spring:message code="teacher.management.projectlibrarydisplay.teacherSharedProjectReviewBeforeRunMessage" />)</div>
-															</c:if>
-															<div class="basicInfo">
-																<c:if test="${project.metadata.subject != null && project.metadata.subject != ''}">${project.metadata.subject} | </c:if>
-																<c:if test="${project.metadata.gradeRange != null && project.metadata.gradeRange != ''}"><spring:message code="teacher.projects.projectinfo.meta_grades" /> ${project.metadata.gradeRange} | </c:if>
-																<c:if test="${project.metadata.totalTime != null && project.metadata.totalTime != ''}">${project.metadata.totalTime} | </c:if>
-																<c:if test="${project.metadata.language != null && project.metadata.language != ''}">${project.metadata.language}</c:if>
-																<% /* 把日期拿掉
-																<div style="float:right;">
-																	<spring:message code="teacher.management.projectlibrarydisplay.created" /> <fmt:formatDate value="${project.dateCreated}" type="date" dateStyle="medium" />
-																</div>
-																*/ %>
-															</div>
+														<div class="projectSummary">
+															<%/* 移到projectHeader去留黨
+															<div class="projectThumb" thumbUrl="${projectThumbMap[project.id]}"><img src='${contextPath}/<spring:theme code="project_thumb"/>' alt='thumb'></div>
+															<div class="summaryInfo">
+															*/%>
+
+
 															<div data-id="${project.id}" class="summaryText">
 															<c:if test="${project.metadata.summary != null && project.metadata.summary != ''}">
 																<c:choose>
@@ -637,6 +613,7 @@
 																</c:choose>
 															</c:if>
 															</div>
+
 															<div class="details" data-id="${project.id}">
 																<c:if test="${project.metadata.keywords != null && project.metadata.keywords != ''}"><p><span style="font-weight:bold;"><spring:message code="teacher.projects.projectinfo.meta_tags" /></span> ${project.metadata.keywords}</p></c:if>
 																<p><span style="font-weight:bold;"><spring:message code="teacher.projects.projectinfo.meta_tech" /></span> ${project.metadata.techDetailsString} (<a href="${contextPath}/pages/check.html?projectId=${project.id}" target="_blank"><spring:message code="teacher.projects.projectinfo.checkCompatibility" /></a>)</p>
@@ -669,18 +646,70 @@
 																			<div class="sectionHead"><spring:message code="teacher.projects.projectinfo.meta_standards" /></div>
 																			<div class="sectionContent">${project.metadata.standards}</div>
 																		</c:if>
-																	</div>
+															</div>
+
 															</c:if>
 															</div>
+															<%/* 改動標籤位置 */ %>
+															<div class="card-bottom">
+
+																<div class="authorName">
+																	<c:if test="${fn:length(project.sharedowners) > 0}">
+																		<div class="sharedIcon" style="float:right;">
+																			<spring:message code="teacher.management.projectlibrarydisplay.ownedBy" />
+																			<c:out value="${project.owner.userDetails.firstname}" />
+																			  <c:out value="${project.owner.userDetails.lastname}" />
+																		</div>
+																	</c:if>
+																	<c:if test="${fn:contains(projectClass,'wise')}">
+																		<div class="libraryIcon"><img src="${contextPath}/<spring:theme code="open_book"/>" alt="library project" /> <spring:message code="teacher.management.projectlibrarydisplay.libraryProject" /></div>
+																	</c:if>
+																	<c:if test="${fn:contains(projectClass,'teachershared')}">
+																		<div class="libraryIcon"><img src="${contextPath}/<spring:theme code="shared"/>" alt="teacher shared project" /> <spring:message code="teacher.management.projectlibrarydisplay.teacherSharedProject" /> (<spring:message code="teacher.management.projectlibrarydisplay.teacherSharedProjectReviewBeforeRunMessage" />)</div>
+																	</c:if>
+																</div>
+															</div>
+
 														</div>
-													</div>
+
 													<div style="clear:both;"></div>
+												</div>
+												<div class="basicInfo">
+													<c:if test="${project.metadata.subject != null && project.metadata.subject != ''}">
+														<div class="subjet">
+															${project.metadata.subject}
+														</div>  
+													</c:if>
+													<c:if test="${project.metadata.gradeRange != null && project.metadata.gradeRange != ''}">
+														<div class="rangeGrade">
+															${project.metadata.gradeRange} 
+														</div>
+													</c:if>
+													<c:if test="${project.metadata.totalTime != null && project.metadata.totalTime != ''}">
+														<div class="totalTime">
+															${project.metadata.totalTime} 
+														</div>	
+													</c:if>
+													<c:if test="${project.metadata.language != null && project.metadata.language != ''}">
+														<div class="language">
+															${project.metadata.language}
+														</div>
+													</c:if>
+													<% /* 把日期拿掉
+													<div style="float:right;">
+														<spring:message code="teacher.management.projectlibrarydisplay.created" /> <fmt:formatDate value="${project.dateCreated}" type="date" dateStyle="medium" />
+													</div>
+													*/ %>
+												</div>
+													<%/* 詳細資料移除
 													<div class="detailsLinks">
 														<div style="float:right; text-align:right">
 															<a data-id="${project.id}" class="detailsToggle"><spring:message code="teacher.management.projectlibrarydisplay.detailsShow" /></a>
 														</div>
 														<div style="clear:both;"></div>
-													</div>
+													</div>					
+													*/%>
+
 												</div>
 											</div>
 										</td>

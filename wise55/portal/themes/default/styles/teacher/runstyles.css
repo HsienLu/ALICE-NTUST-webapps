@@ -12,6 +12,7 @@
 
 .projectTable .projectRow {
 	/*border-bottom:1px solid #999999;*/
+	
 }
 
 .projectTable tr.even, .projectTable tr.odd {
@@ -32,7 +33,8 @@
 }
 
 .projectBox {
-	padding:0 .5em;
+	background: #FFF6E9;
+	padding:0.5rem .5rem;
 	position:relative;
 	border: 1px solid #DDDDDD;
     margin: 0.5em 0 1px;
@@ -125,7 +127,10 @@
 
 .projectThumb {
 	float:left;
+	background-color: #fff;
+	margin-top: 0.5rem;
 	margin-bottom:.5em;
+	margin-right:.75rem;
 }
 
 .projectThumb img {
@@ -142,7 +147,7 @@
 
 .libraryIcon, .sharedIcon {
 	/*color:#FF8676;*/
-	color:#FF563F;
+	color:#0C3CE8;
 	font-weight:bold;
 	margin-bottom:.5em;
 	min-height:1em;
@@ -196,6 +201,47 @@ a.unshare {
 	margin:0 0 .5em;
 	color: #765936;
 	min-height:1em;
+}
+
+.basicInfo > .subjet{
+	display: inline-flex;
+	align-items: center;
+	background-color: #f0f0f0; /* 淺灰色背景 */
+	border-radius: 20px; /* 圓角邊框 */
+	padding: 5px 10px; /* 內邊距 */
+	font-size: 14px; /* 文字大小 */
+	
+	background-color: #d9d9d9;
+}
+.basicInfo > .rangeGrade{
+	display: inline-flex;
+	align-items: center;
+	background-color: #17a2b8; /* 淺灰色背景 */
+	border-radius: 20px; /* 圓角邊框 */
+	padding: 5px 10px; /* 內邊距 */
+	font-size: 14px; /* 文字大小 */
+	
+	background-color: #d9d9d9;
+}
+.basicInfo > .totalTime{
+	display: inline-flex;
+	align-items: center;
+	background-color: #40a2e3; /* 淺灰色背景 */
+	border-radius: 20px; /* 圓角邊框 */
+	padding: 5px 10px; /* 內邊距 */
+	font-size: 14px; /* 文字大小 */
+	
+	background-color: #d9d9d9;
+}
+.basicInfo > .language{
+	display: inline-flex;
+	align-items: center;
+	background-color: #28a745; /* 淺灰色背景 */
+	border-radius: 20px; /* 圓角邊框 */
+	padding: 5px 10px; /* 內邊距 */
+	font-size: 14px; /* 文字大小 */
+	
+	background-color: #f67f7f;
 }
 
 .projectSummary div.summaryText {
@@ -265,6 +311,16 @@ a.viewLesson:hover {
 .lessonPlan .lessonHelp {
 	display:none;
 }
+.card-bottom{
+	margin-top: 0.5rem;
+}
+.card-bottom .basicInfo{
+	float: left;
+}
+.card-bottom .authorName{
+	/* float:right; */
+}
+
 
 .runTable, .projectOverview {
 	border-collapse:collapse;
@@ -296,6 +352,7 @@ a.viewLesson:hover {
 
 .projectOverview {
 	border: 0 none;
+	
 }
 
 .projectHeader .projectInfo {
@@ -310,7 +367,9 @@ a.viewLesson:hover {
 	/* float:right; */
 	
 }
-
+.projectHeader .projectTools .actions > li> a,span{
+	color:#404040;
+}
 .projectHeader div {
 	margin: .5em 0;
 }
