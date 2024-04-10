@@ -1,7 +1,9 @@
 <script>
     class CurseCard extends HTMLElement{
         static styles=`
-    
+            * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
             h4{
                 color:#404040;
                 font-size: 1.5rem;

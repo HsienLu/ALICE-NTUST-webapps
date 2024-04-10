@@ -37,3 +37,14 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!-- 解決編碼問題 -->
 <%@page pageEncoding='UTF-8'  %>
+<!-- 字型 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+<style>
+
+
+* {
+  font-family: "Noto Sans TC", sans-serif !important;
+}
+</style>

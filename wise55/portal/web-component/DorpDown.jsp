@@ -1,6 +1,9 @@
 <script>	
 	class DropDown extends HTMLElement{
         static style=`
+             * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
         /* 容器樣式 */
             .dropdown {
             position: relative;

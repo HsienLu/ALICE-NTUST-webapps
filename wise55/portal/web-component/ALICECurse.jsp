@@ -3,6 +3,9 @@
     class CurseIntroduction extends HTMLElement{
     
             static style=`
+            * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
             div{
                 color: black;
                 width: 100%;

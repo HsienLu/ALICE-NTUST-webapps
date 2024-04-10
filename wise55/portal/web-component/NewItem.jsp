@@ -1,6 +1,9 @@
 <script>
 class NewItem extends HTMLElement{
     static style=`
+    * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
         .box{
             padding: 0.5rem;
         }

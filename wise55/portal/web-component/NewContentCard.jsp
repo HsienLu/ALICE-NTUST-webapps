@@ -1,6 +1,9 @@
 <script>
     	class NewsItem extends HTMLElement {
 		static stylesheet=`
+		* {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
 			img{
 				min-width:319px;
 			}

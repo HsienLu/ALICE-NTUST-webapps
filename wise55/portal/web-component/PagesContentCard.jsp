@@ -7,6 +7,9 @@
             this.styling();
         }
         static style=`
+        * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
         img{
             max-width:300px;
         }

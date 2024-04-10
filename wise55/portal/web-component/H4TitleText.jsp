@@ -1,6 +1,9 @@
 <script>
     class H4TitleText extends HTMLElement{
         static stylesheet=`
+            * {
+                font-family: "Noto Sans TC", sans-serif !important;
+            }
             h4{
                 padding-top:0.25rem;
 			    margin-block:1.5rem; 
