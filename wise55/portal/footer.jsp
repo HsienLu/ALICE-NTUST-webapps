@@ -20,9 +20,9 @@
 				<div class="box2">
 					<div class="logo-group">
 						<a href=""><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-1' />" alt=""></a>
-						<a href=""><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-2' />" alt=""></a>
+						<a href="https://www.youtube.com/channel/UCLTLbvuu5vAIatC7YcM9DGg"><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-2' />" alt=""></a>
 						<a href=""><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-3' />" alt=""></a>
-						<a href=""><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-4' />" alt=""></a>
+						<a href="mailto:digi.climatechange.edu@gmail.com"><img src="${contextPath}/<spring:theme code='footer-contanct-logo-line-4' />" alt=""></a>
 					</div>
 				</div>
 			</div>
