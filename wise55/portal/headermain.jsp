@@ -7,8 +7,8 @@
 			</a>
 		</div>
 		<div class="seclectMenu ">
-				<a href="http://140.122.146.33:778/projectlibrary" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select1" /></a>
-				<a href="http://140.122.146.33:778/pages/news.html" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select2" /></a>
+				<a href="${contextPath}/projectlibrary" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select1" /></a>
+				<a href="${contextPath}/pages/news.html" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select2" /></a>
 
 				<drop-down></drop-down>
 				
