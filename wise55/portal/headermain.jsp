@@ -1,5 +1,9 @@
-
-<div id="header" style="background: #BBE2EC;">
+<style>
+	* {
+  font-family: "Noto Sans TC", sans-serif !important;
+}
+</style>
+<div id="header" style="background: #BBE2EC;margin-bottom: 1rem;">
 	<div class="banner" style=>
 		<div class="logoHeader">
 			<a id="name" class="" href="${contextPath}/" title="<spring:message code="wiseHomepage" />">
