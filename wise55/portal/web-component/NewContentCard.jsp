@@ -15,14 +15,15 @@
 				margin-left: 3.5rem;
 			}
 			h4{
-				font-size:3rem;
+				font-size:2rem;
 				color:#0C3CE8;
 				margin-top:0;
 				margin-bottom:1rem;
 			}
 			p {
 				color:#787878;
-				font-size:1.5rem;
+				font-size:1.25rem;
+				line-height:2;
 			}
 			a{
 				color:#40A2E3;
@@ -50,17 +51,17 @@
 			this.box.appendChild(this.textbox);
 
 			this.titleText=this.createElementwithClass('h4','titleText');
-			this.titleText.textContent='Title';
+			this.titleText.textContent=this.getAttribute('titleText');
 			this.textbox.appendChild(this.titleText);
 
 			this.textPar=this.createElementwithClass('p','textPar');
-			this.textPar.textContent='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate feugiat vel laoreet suspendisse. Id fusce vestibulum felis, vitae, consectetur faucibus quis elit cras. Urna gravida adipiscing dignissim pretium eget non. Tortor, in id arcu pulvinar.';
+			this.textPar.textContent=this.getAttribute('textPar');
 			this.textbox.appendChild(this.textPar);
 
-			this.moreLink=this.createElementwithClass('a','moreLink');
-			this.moreLink.setAttribute('href','#');
-			this.moreLink.textContent='<spring:message code="index.news.moreLink"/>';
-			this.textbox.appendChild(this.moreLink);
+			// this.moreLink=this.createElementwithClass('a','moreLink');
+			// this.moreLink.setAttribute('href','#');
+			// this.moreLink.textContent='<spring:message code="index.news.moreLink"/>';
+			// this.textbox.appendChild(this.moreLink);
 
 
 
