@@ -7,7 +7,7 @@
 					<div id="footerLinks">
 						<div id="wiseLinks">
 							<ul>
-							   <li class="first"><a href="${contextPath}/pages/gettingstarted.html"><spring:message code="footer.gettingStarted" /></a></li>
+							   <li class="first"><a href="${contextPath}/Getting-Started/"><spring:message code="footer.gettingStarted" /></a></li>
 							   <li><a href="${contextPath}/pages/teacherfaq.html"><spring:message code="footer.faq" /></a></li>
 							   <li><a href="${contextPath}/pages/terms.html"><spring:message code="footer.termsOfUse" /></a></li>
 						   </ul>
