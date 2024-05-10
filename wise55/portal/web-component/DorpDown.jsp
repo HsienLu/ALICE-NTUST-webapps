@@ -14,8 +14,7 @@
             .dropbtn {
             background-color: #BBE2EC;
 
-            padding: 16px;
-            
+                        
             border: none;
             cursor: pointer;
             color: #404040;
@@ -48,12 +47,14 @@
 
             /* 鼠標懸停於選項時的背景色變化 */
             .dropdown-content a:hover {
-            background-color: #f1f1f1
+            background-color: #f1f1f1;
+            
             }
 
             /* 按鈕懸停樣式 */
             .dropbtn:hover, .dropbtn:focus {
             background-color: #f9f9f9;
+            
             }
         `
 		constructor(){

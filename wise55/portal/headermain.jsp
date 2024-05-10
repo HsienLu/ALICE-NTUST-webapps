@@ -11,8 +11,8 @@
 			</a>
 		</div>
 		<div class="seclectMenu ">
-				<a href="${contextPath}/projectlibrary" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select1" /></a>
-				<a href="${contextPath}/pages/news.html" style="color: #404040;font-size: 20px;line-height: 1.25"><spring:message code="index.menu.select2" /></a>
+				<a href="${contextPath}/projectlibrary" style="color: #404040;font-size: 20px;line-height: 1.25;text-align: center;"><spring:message code="index.menu.select1" /></a>
+				<a href="${contextPath}/pages/news.html" style="color: #404040;font-size: 20px;line-height: 1.25 ;text-align: center;"><spring:message code="index.menu.select2" /></a>
 
 				<drop-down></drop-down>
 				

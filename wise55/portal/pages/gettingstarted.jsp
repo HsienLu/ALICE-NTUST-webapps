@@ -25,7 +25,7 @@
 
 	<%@ include file="../headermain.jsp"%>
 
-	<%@ include file="./Getting-Started/index.html"%>
+	<!-- include file="./Getting-Started/index.html" -->
 
 	<%@ include file="../footer.jsp"%>
 </div>
