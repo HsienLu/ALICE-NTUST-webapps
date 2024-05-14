@@ -1083,7 +1083,7 @@
 																		<spring:message code="teacher.management.projectlibrarydisplay.ownedBy" />
 																		<c:out value="${project.owner.userDetails.firstname}" />
 												  						<c:out value="${project.owner.userDetails.lastname}" />
-																		<a class="unshare" onclick="unshareFromProject('${project.id}','<spring:escapeBody javaScriptEscape="true">${project.name}</spring:escapeBody>')"><spring:message code="teacher.management.projectlibrarydisplay.unshare" /></a>
+																		<a class="unshare" onclick=`unshareFromProject('${project.id}','<spring:escapeBody javaScriptEscape="true">${project.name}</spring:escapeBody>')`><spring:message code="teacher.management.projectlibrarydisplay.unshare" /></a>
 																	</c:if>
 																	</div>
 																	<div class="basicInfo">

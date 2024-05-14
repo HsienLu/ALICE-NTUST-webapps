@@ -27,8 +27,9 @@
 <div id="pageWrapper">
 	<div id="page" style="margin-top:2rem;">
 		<div id="pageContent">
-			<div class="contentPanel">
-				<div class="panelHeader">
+			<!-- <div class="contentPanel"> 取消contentPanel的class樣式-->
+			<div class="">
+				<div class="panelHeader" style="border-bottom: 1px solid #000;color: #404040;margin-bottom: 1rem;">
 					
 					<spring:message code="teacher.management.library.title" />
 				</div>

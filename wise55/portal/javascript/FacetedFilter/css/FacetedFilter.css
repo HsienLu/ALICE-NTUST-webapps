@@ -3,8 +3,9 @@
 
 .FF_sidebar {
 	width:220px;
-	background-color: #DDDDDD;
+	/* background-color: #DDDDDD; */
 	/*background-color: #765936;*/
+	background-color: #BBE2Ec;
 	position:relative;
 	padding: .5em;
 }
@@ -18,7 +19,8 @@
 	/*border-bottom: 1px solid #BBBBBB;
     color: #047492;*/
 	border-bottom: 1px solid #BBBBBB;
-    color: #795C3A;
+    /* color: #795C3A; */
+	color:#0C3CE8 ;
     font-size: 0.9em;
     font-weight: bold;
     margin: 1em 0 0.5em;
@@ -115,7 +117,8 @@
 }
 
 .FF_sidebar .filter_display a {
-    color: #585F0C;
+    /* color: #585F0C; */
+	color:#000;
     padding: 1px 4px;
 }
 

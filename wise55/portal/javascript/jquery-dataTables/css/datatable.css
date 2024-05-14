@@ -82,7 +82,7 @@
 
 .dataTables_paginate {
 	width: 44px;
-	* width: 50px;
+	 /* width: 50px; */
 	float: right;
 	text-align: right;
 }
@@ -145,7 +145,7 @@ table.display thead th {
 	border-bottom: 1px solid black;
 	font-weight: bold;
 	cursor: pointer;
-	* cursor: hand;
+	 /* cursor: hand; */
 }
 
 table.display tfoot th {
@@ -252,7 +252,7 @@ tr.even {
 }
 
 .dataTables_scrollBody {
-	*margin-top: -1px;
+	/* *margin-top: -1px; */
 }
 
 .top, .bottom {
@@ -318,7 +318,7 @@ td.details {
 	color: #007391;
 	margin: 0 3px;
 	cursor: pointer;
-	*cursor: hand;
+	/* *cursor: hand; */
 }
 
 .paging_full_numbers span.paginate_button:hover {
