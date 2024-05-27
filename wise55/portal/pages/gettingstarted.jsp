@@ -17,6 +17,9 @@
 
 <script src="${contextPath}/<spring:theme code="jquerysource"/>" type="text/javascript"></script>
 <script src="${contextPath}/<spring:theme code="superfishsource"/>" type="text/javascript"></script>
+
+<script type="module" crossorigin src="./resources/gettingstarted/assets/index-ocjPKDJJ.js"></script>
+<link rel="stylesheet" crossorigin href="./resources/gettingstarted/assets/index-DsUjJv-6.css">
 </head>
 <body>
 <spring:htmlEscape defaultHtmlEscape="false">
@@ -25,7 +28,7 @@
 
 	<%@ include file="../headermain.jsp"%>
 
-	<!-- include file="./Getting-Started/index.html" -->
+	<div id="root"></div>
 
 	<%@ include file="../footer.jsp"%>
 </div>
