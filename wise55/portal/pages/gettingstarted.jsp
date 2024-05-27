@@ -18,8 +18,9 @@
 <script src="${contextPath}/<spring:theme code="jquerysource"/>" type="text/javascript"></script>
 <script src="${contextPath}/<spring:theme code="superfishsource"/>" type="text/javascript"></script>
 
-<script type="module" crossorigin src="./resources/gettingstarted/assets/index-ocjPKDJJ.js"></script>
-<link rel="stylesheet" crossorigin href="./resources/gettingstarted/assets/index-DsUjJv-6.css">
+<script type="module" crossorigin src="./resources/gettingstarted/assets/index-DuMolUNJ.js"></script>
+<link rel="stylesheet" crossorigin href="./resources/gettingstarted/assets/index-DdN5zXRh.css">
+
 </head>
 <body>
 <spring:htmlEscape defaultHtmlEscape="false">
