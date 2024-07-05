@@ -1,11 +1,13 @@
 *.mp4
 *.swf
 node_modules
+hello
 *.war
 *.properties
-
+./hello/*
 wise.properties
 wise.properties
 ./wise55/WEB-INF/classes/wise.properties
 wise55/WEB-INF/classes/wise.properties
 /opt/tomcat/webapps/wise55/WEB-INF/classes/wise.properties
+/opt/tomcat/webapps/webapps/hello/*
