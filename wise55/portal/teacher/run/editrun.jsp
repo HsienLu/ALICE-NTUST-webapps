@@ -21,6 +21,13 @@
 	function updateRunTitle(runId){
 		$('#msgDiv').html('');
 		var val = $('#editRunTitleInput').val();
+		// 防止 XSS script注入
+		if(val.includes("<") || val.includes(">")){
+
+			val = val.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+			writeMessage('<spring:message code="teacher.run.editrun.mustSpecifyTitle"/>');
+			return;
+		}
 
 		/* validate user entered value */
 		if(!val || val==''){
