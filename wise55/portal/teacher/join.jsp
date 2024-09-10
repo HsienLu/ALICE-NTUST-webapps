@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="../include.jsp"%>
 
 <!DOCTYPE html>
@@ -215,12 +216,12 @@ $(document).ready(function() {
 			<div id="headerSmall">
 				<a id="name" href="${contextPath}/" title="<spring:message code="wiseHomepage"/>"></a>
 			</div>
-
+			
 			<div class="infoContent">
 				<div class="panelHeader"><spring:message code="teacher.registerteacher.teacherRegistration"/></div>
 				<div class="infoContentBox">
 					<div><spring:message code="teacher.registerteacher.toCreateATeacherAccount"/>, <spring:message code="teacher.registerteacher.pleaseCompleteRequiredFields"/></div>
-
+					<h4 style="color:red; font-weight: 900; font-size: 1rem;">注意:姓名請使用英文</h4>
 					<!-- Support for Spring errors object -->
 					<div class="errorMsgNoBg">
 						<spring:bind path="teacherAccountForm.*">
