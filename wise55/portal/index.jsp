@@ -115,8 +115,8 @@
     				font-weight: bold !important;text-align: center;"><spring:message code="index.browseCurricula"/>
 					</a>
 					<div>
-		// <a href="${contextPath}/?lang=en">英文</a>/
-		// <a href="${contextPath}/?lang=zh_tw">中文</a>
+		 <a href="${contextPath}/?lang=en">英文</a>/
+		 <a href="${contextPath}/?lang=zh_tw">中文</a>
 	</div>
 			</div>
 	</div>
