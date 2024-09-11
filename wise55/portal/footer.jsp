@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <div id="footer">
 	<div class="banner">
 	 	<div id="contentFooter">
@@ -26,6 +27,7 @@
 					</div>
 				</div>
 			</div>
+
 
 	 		<div class="footer-right">
 	 			<div id="footerLogos">
