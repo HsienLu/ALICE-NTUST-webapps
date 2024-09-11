@@ -77,7 +77,6 @@
 						<new-item titleText="徵稿資訊" picSrc="${contextPath}/<spring:theme code="new-item-pic4-v2"/>" ></new-item>
 					</div>
 				</div>
-
 			</div>
 			<div class="showcase">
 				<div class="title-text">
