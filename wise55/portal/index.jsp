@@ -48,6 +48,7 @@
 <body>
 	<%@ include file="headermain.jsp"%>
 <div id="pageWrapper">
+
 	<div class="notice" style="margin-top: -1rem;">
 	</div>
 	<div id="page">
@@ -63,6 +64,7 @@
 		<div id="pageContent">
 			<div class="showcase">
 				<div id="about">
+
 				</div>
 			</div>
 			<div class="showcase">
@@ -112,8 +114,13 @@
 					text-decoration: underline;
     				font-weight: bold !important;text-align: center;"><spring:message code="index.browseCurricula"/>
 					</a>
+					<div>
+		// <a href="${contextPath}/?lang=en">英文</a>/
+		// <a href="${contextPath}/?lang=zh_tw">中文</a>
+	</div>
 			</div>
 	</div>
+
 	<%@ include file="footer.jsp"%>
 </div>
 <div id="projectDetailDialog" style="overflow:hidden;" class="dialog"></div>
