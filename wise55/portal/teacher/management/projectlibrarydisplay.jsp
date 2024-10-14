@@ -2017,15 +2017,30 @@
 					{
 						"identifier": "subject", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject"/>", "column": 3,
 						"options": [
-							{"query": "General Science", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_genScience"/>"}, // TODO: modify FacetedFilter plugin to only require a query for each filter, use query as display if display option is not set
-							{"query": "Earth Science", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_earthScience"/>"},
-							{"query": "Life Science", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_lifeScience"/>"},
-							{"query": "Physical Science", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_physicalScience"/>"},
-							{"query": "Biology", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_biology"/>"},
-							{"query": "Chemistry", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_chemistry"/>"},
-							{"query": "Physics", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_physics"/>"},
-							{"query": "WISE Research", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_research"/>"}
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_108Curriculum"/>", "display":"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_108Curriculum"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_VocationalEducation"/>", "display":"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_VocationalEducation"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SDGs"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SDGs"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_MediaLiteracy"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_MediaLiteracy"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_AITools"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_AITools"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_Database"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_Database"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ProbabilityThinking"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ProbabilityThinking"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ExplanationAndArgument"/>", "display": 						"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ExplanationAndArgument"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_PopularScienceReading"/>", "display": 						"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_PopularScienceReading"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SimulationExperiment"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SimulationExperiment"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ClimateChange"/>", "display": 	"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ClimateChange"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SocialIssues"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_SocialIssues"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_FieldStudy"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_FieldStudy"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionDesign"/>", "display": "<spring:message 	code="teacher.management.projectlibrarydisplay.filter_subject_ActionDesign"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionExperiment"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionExperiment"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionSurvey"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionSurvey"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionImprovement"/>", "display":"<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ActionImprovement"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ChartReading"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ChartReading"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ProblemSolving"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_ProblemSolving"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_OnlineTools"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_OnlineTools"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_Metacognition"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_Metacognition"/>"}, 
+    						{"query": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_CollaborativeLearning"/>", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_CollaborativeLearning"/>"}
 						]
+
 					},
 					// {
 					// 	"identifier": "grade", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade"/>", "column": 4,
