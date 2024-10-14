@@ -9,10 +9,14 @@
                 ng-checked='projectInfoController.metadataChoiceIsChecked(metadataField, choice)'
                 ng-click='projectInfoController.metadataRadioClicked(metadataField, choice)' /> {{ projectInfoController.getMetadataChoiceText(choice) }}
     </div>
+
     <div ng-if='metadataField.type == "checkbox"' ng-repeat='choice in metadataField.choices'>
         <label>
             <input type='checkbox' ng-model='metadataField.choicesMapping[choice]' ng-click='projectInfoController.metadataCheckboxClicked(metadataField, choice)' /> {{ projectInfoController.getMetadataChoiceText(choice) }}
         </label>
     </div>
     <br/>
+</div>
+<div ng-controller="ProjectInfoController as projectInfoController">
+    <button ng-click='projectInfoController.createOpenTag()'>Open Class</button>
 </div>

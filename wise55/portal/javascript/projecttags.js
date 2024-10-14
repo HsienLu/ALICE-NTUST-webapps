@@ -22,6 +22,7 @@ function clearTagMessage(){
  * Validates the user's input and creates that tag for the project
  */
 function createTag(projectId){
+	
 	/* get the value entered by the user */
 	var val = $('#createTagInput_' + projectId).val();
 	
@@ -40,6 +41,30 @@ function createTag(projectId){
 	/* make a request to the server to add a tag */
 	$.ajax({type:'POST', url:'tagger.html', dataType:'text', data:'command=createTag&projectId=' + projectId + '&tag=' + val, error:tagPostFailure, success:createTagSuccess, context:{projectId:projectId}});
 };
+/**
+ * open the class by HsienLu A 
+ */
+function createOpenTag(projectId){
+	
+	/* get the value entered by the user */
+	var val = "library";
+	
+	/* validate the entered value */
+	// if(!val || val==''){
+	// 	tagMessage('You must enter a tag name before creating a tag.', projectId);
+	// 	return;
+	// }
+	
+	/* validate that there are no spaces in the tag name */
+	// if(val.indexOf(' ') != -1){
+	// 	tagMessage('A tag is not allowed to contain spaces!', projectId);
+	// 	return;
+	// }
+	
+	/* make a request to the server to add a tag */
+	$.ajax({type:'POST', url:'tagger.html', dataType:'text', data:'command=createTag&projectId=' + projectId + '&tag=' + val, error:tagPostFailure, success:createTagSuccess, context:{projectId:projectId}});
+};
+
 
 /**
  * Cleans up and notifies user upon a successful post request to the server to
