@@ -1,3 +1,5 @@
+<!-- 解決中文編碼問題 -->
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link href="${contextPath}/<spring:theme code="teacherrunstylesheet"/>" media="screen" rel="stylesheet"  type="text/css" />
 <link href="${contextPath}/<spring:theme code="jquerydatatables.css"/>" media="screen" rel="stylesheet"  type="text/css" />
 <link href="${contextPath}/<spring:theme code="facetedfilter.css"/>" media="screen" rel="stylesheet"  type="text/css" />
@@ -2025,31 +2027,31 @@
 							{"query": "WISE Research", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_subject_research"/>"}
 						]
 					},
-					{
-						"identifier": "grade", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade"/>", "column": 4,
-						"options": [
-							{"query": "3-5", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_3-5"/>"},
-							{"query": "6-8", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_6-8"/>"},
-							{"query": "6-12", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_6-12"/>"},
-							{"query": "9-12", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_9-12"/>"},
-							{"query": "12+", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_12+"/>"}
-						]
-					},
-					{
-						"identifier": "duration", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time"/>", "column": 5,
-						"options": [
-							{"query": "2-3 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_2-3h"/>"},
-							{"query": "4-5 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_4-5h"/>"},
-							{"query": "6-7 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_6-7h"/>"},
-							{"query": "8-9 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_8-9h"/>"},
-							{"query": "10-11 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_10-11h"/>"},
-							{"query": "12+ Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_12h+"/>"}
-						]
-					},
+					// {
+					// 	"identifier": "grade", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade"/>", "column": 4,
+					// 	"options": [
+					// 		{"query": "3-5", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_3-5"/>"},
+					// 		{"query": "6-8", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_6-8"/>"},
+					// 		{"query": "6-12", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_6-12"/>"},
+					// 		{"query": "9-12", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_9-12"/>"},
+					// 		{"query": "12+", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_grade_12+"/>"}
+					// 	]
+					// },
+					// {
+					// 	"identifier": "duration", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time"/>", "column": 5,
+					// 	"options": [
+					// 		{"query": "2-3 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_2-3h"/>"},
+					// 		{"query": "4-5 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_4-5h"/>"},
+					// 		{"query": "6-7 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_6-7h"/>"},
+					// 		{"query": "8-9 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_8-9h"/>"},
+					// 		{"query": "10-11 Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_10-11h"/>"},
+					// 		{"query": "12+ Hours", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_time_12h+"/>"}
+					// 	]
+					// },
 					{
 						"identifier": "language", "label": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language"/>", "column": 7,
 						"options": [
-							{"query": "chinese", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language_chinese"/>"}
+							{"query": "中文", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language_chinese"/>"}
 							/* {"query": "dutch", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language_dutch"/>"},
 							{"query": "english", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language_english"/>"},
 							{"query": "hebrew", "display": "<spring:message code="teacher.management.projectlibrarydisplay.filter_language_hebrew"/>"},
