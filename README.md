@@ -10,3 +10,12 @@
 ```
 1. 一定要在當頁加上去，includle的方法不行
 2. 用篩選課程測試也是有用的
+
+### babel的使用方法
+```bash
+npx babel "被轉化的檔案路徑" --out-file "轉化後的檔案路徑" 
+```
+需要將輸出的檔案保留原本路徑結構，可以使用 --copy-files 和路徑模擬工具(待測試)
+```bash
+npx babel src --watch --out-dir . --copy-files
+```
