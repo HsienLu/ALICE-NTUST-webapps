@@ -17,6 +17,16 @@
     </div>
     <br/>
 </div>
-<div ng-controller="ProjectInfoController as projectInfoController">
-    <button ng-click='projectInfoController.createOpenTag()'>Open Class</button>
+<div class="visibility-section">
+    <label>公開狀態:</label>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default" ng-click="projectInfoController.callTest()">
+            公開
+        </button>
+        <button type="button" class="btn btn-default" >
+            不公開
+        </button>
+    </div>
+    <p class="status-text" style="margin-top: 15px;">目前狀態: <strong>{{projectInfoController.message}}</strong></p>
 </div>
+

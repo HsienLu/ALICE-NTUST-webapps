@@ -24,7 +24,7 @@ class ProjectInfoController {
         this.ProjectService = ProjectService;
         this.UtilService = UtilService;
         this.$translate = this.$filter('translate');
-
+        this.message = '確認中';           
         // process metadata
         this.metadata = this.ProjectService.getProjectMetadata();
         this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
@@ -197,8 +197,14 @@ class ProjectInfoController {
         /* make a request to the server to add a tag */
         console.log('command=createTag&projectId=' + projectId + '&tag=' + val)
         $.ajax({type:'POST', url:'http://140.118.164.6/admin/project/tagger.html', dataType:'text', data:'command=createTag&projectId=' + projectId + '&tag=' + val, error:tagPostFailure, success:alert('課程已經公開'), context:{projectId:projectId}});
-    };
 
+
+    };
+    
+    callTest(){
+        this.message="公開"
+        console.log(this.message )
+    }
 }
 
 

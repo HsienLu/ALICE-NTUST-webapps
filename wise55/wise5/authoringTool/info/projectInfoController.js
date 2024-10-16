@@ -24,7 +24,7 @@ var ProjectInfoController = /*#__PURE__*/function () {
     this.ProjectService = ProjectService;
     this.UtilService = UtilService;
     this.$translate = this.$filter('translate');
-
+    this.message = '確認中';
     // process metadata
     this.metadata = this.ProjectService.getProjectMetadata();
     this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
@@ -200,6 +200,12 @@ var ProjectInfoController = /*#__PURE__*/function () {
           projectId: projectId
         }
       });
+    }
+  }, {
+    key: "callTest",
+    value: function callTest() {
+      this.message = "公開";
+      console.log(this.message);
     }
   }]);
 }();
