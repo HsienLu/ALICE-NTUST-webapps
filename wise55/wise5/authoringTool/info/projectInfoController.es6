@@ -24,12 +24,13 @@ class ProjectInfoController {
         this.ProjectService = ProjectService;
         this.UtilService = UtilService;
         this.$translate = this.$filter('translate');
-        this.message = '確認中';           
+        this.message = '確認中'; //新加的
+        this.timer=null;//新加的          
         // process metadata
         this.metadata = this.ProjectService.getProjectMetadata();
         this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
         this.processMetadataAuthoring();
-
+        this.getWorkgroupPublicState()           
     };
 
     processMetadataAuthoring() {
@@ -134,77 +135,85 @@ class ProjectInfoController {
 
     save() {
         this.ProjectService.saveProject(); // save the project
+    } 
+
+    getWorkgroupPublicState() {
+        const projectId = this.ConfigService.config.projectId;
+        return new Promise((resolve, reject) => {
+            fetch('http://140.118.164.6:3000/getOneWorkgroupTag', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "project_fk": projectId
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.message = data.isPublic === 1 ? "公開" : "不公開";
+                resolve(this.message);
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                reject(error);
+            });
+        });
     }
-    // 額外加的 by HsienLu
-    createOpenTag(projectId) {
-        /* get the value entered by the user */
-        var projectId= this.ConfigService.config.projectId
-        var val = "library";
-        function clearTagMessage(){
-            $('.tagMessage').html('');
-        };
-        function tagMessage(msg, projectId){
-            $('#createTagMsgDiv_' + projectId).html(msg);
-            setTimeout(function(){clearTagMessage();},8000);
-        };
-        function tagPostFailure(){
-            tagMessage('Error contacting server, unable to fulfill request.', this.projectId);
-        };
-        function createTagSuccess(data, textStatus, request){
-            /* if the request is not successful, notify user with given status if
-             * not 200 and with server error message if it is in the response */
-            if(request.status != 200){
-                tagMessage(textStatus, this.projectId);
-                return;
-            }
-            
-            if(data.indexOf('The server has encountered an error.') != -1){
-                tagMessage('The server has encountered an error while attempting to create the tag.', this.projectId);
-                return;
-            }
-            
-            /* check to see if this is a duplicate and notify user */
-            if(data==('duplicate')){
-                tagMessage('A tag with that name already exists for this project, aborting operation', this.projectId);
-                return;
-            }
-            
-            /* check to see if the user was authorized to create that tag and notify user */
-            if(data==('not-authorized')){
-                tagMessage('You are not authorized to create a tag with that name, aborting operation', this.projectId);
-                return;
-            }
-            
-            /* get the value entered by the user */
-            var val = $('#createTagInput_' + this.projectId).val();
-            var id = data;
-            
-            /* add this to the existing tags list */
-            $('#existingTagsDiv_' + this.projectId).append('<table id="tagTable_' + this.projectId + '_' + id + '"><tbody><tr><td><input id="tagEdit_' + 
-                    this.projectId + '_' + id + '" type="text" value="' + val + '" onchange="tagChanged($(this).attr(\'id\'))"/></td><td><input id="removeTag_' + this.projectId + '_' + 
-                    id + '" type="button" value="remove" onclick="removeTag($(this).attr(\'id\'))"/></td></tr></tbody></table>');
-            
-            /* add the newly created tag to the tag name map */
-            tagNameMap[id] = val;
-            
-            /* clear the tags input so user can create another */
-            $('#createTagInput_' + this.projectId).val('');
-            
-            /* notify user that request was successful */
-            tagMessage('The tag <span class="tag">' + val + '</span> was successfully added to the project!', this.projectId);
-        };
-
-        /* make a request to the server to add a tag */
-        console.log('command=createTag&projectId=' + projectId + '&tag=' + val)
-        $.ajax({type:'POST', url:'http://140.118.164.6/admin/project/tagger.html', dataType:'text', data:'command=createTag&projectId=' + projectId + '&tag=' + val, error:tagPostFailure, success:alert('課程已經公開'), context:{projectId:projectId}});
-
-
-    };
     
-    callTest(){
-        this.message="公開"
-        console.log(this.message )
+    changeWorkgroupPublicState() {
+        let projectId= this.ConfigService.config.projectId
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+            if(this.message === "不公開"){
+                $.ajax({
+                    type:'POST',
+                    url:'http://140.118.164.6:3000/addLibraryTag',
+                    data: JSON.stringify({
+                        "project_fk": projectId
+                    }),
+                    contentType: 'application/json',
+                    success:function(data){
+                        console.log(data)
+                        this.message = "公開"
+                        
+                    },
+                    error:function(err){
+                        console.log(err)
+                        
+                    }
+                })
+                this.message = "公開"
+            }else{
+                $.ajax({
+                    type:'DELETE',
+                    url:'http://140.118.164.6:3000/deleteLibraryTag',
+                    data: JSON.stringify({
+                        "project_fk": projectId
+                    }),
+                    contentType:'application/json',
+                    success:function(data){
+                        console.log(data)
+                        this.message="不公開"
+                    },
+                    error:function(data){
+                        console.log(data)
+                    
+                    }
+                })
+                this.message="不公開"
+            }
+            // this.message = this.message === "公開" ? "不公開" : "公開";
+            
+            console.log(this.message);
+        }, 100); // 300毫秒的延遲時間
     }
+
 }
 
 

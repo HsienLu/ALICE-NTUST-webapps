@@ -19,14 +19,13 @@
 </div>
 <div class="visibility-section">
     <label>公開狀態:</label>
-    <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default" ng-click="projectInfoController.callTest()">
-            公開
-        </button>
-        <button type="button" class="btn btn-default" >
-            不公開
+    <div style="display: flex ;">
+    <div class="toggle-button" style="display: flex;" role="group">
+        <button type="button" style="justify-content: center; margin-right: 1rem;" class="btn btn-default" ng-class="{'btn-success': projectInfoController.message === '公開', 'btn-danger': projectInfoController.message !== '公開'}" ng-click="projectInfoController.changeWorkgroupPublicState()">
+             {{projectInfoController.message === "公開" ? "ON" : "OFF"}}
         </button>
     </div>
-    <p class="status-text" style="margin-top: 15px;">目前狀態: <strong>{{projectInfoController.message}}</strong></p>
+    <p class="status-text" style="align-self: center;">目前狀態: <strong>{{projectInfoController.message}}</strong></p>
+    </div>
 </div>
 
