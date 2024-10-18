@@ -26,7 +26,7 @@ var ProjectInfoController = /*#__PURE__*/function () {
     this.$translate = this.$filter('translate');
     this.message = '確認中'; //新加的
     this.timer = null; //新加的         
-    this.envPath = 'http://140.118.164.6:3000'; //新家的
+    this.envPath = 'http://140.118.164.6:3000/workgroups'; //新家的
     // process metadata
     this.metadata = this.ProjectService.getProjectMetadata();
     this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
