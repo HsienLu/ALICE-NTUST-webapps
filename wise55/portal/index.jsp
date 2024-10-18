@@ -90,7 +90,7 @@
 					data-aos-easing="linear"
     				data-aos-duration="700" flexDirection="row" textTitle="學生課程" textContent="<spring:message code="index.curse.ALICE.student.text"/>" picSrc="${contextPath}/<spring:theme code="index-advantage-pic1"/>" ></curse-introduction>
 					<curse-introduction data-aos="fade-left"      data-aos-easing="linear"
-    				data-aos-duration="700" flexDirection="reverse-row"  textTitle="教師課程" textContent="<spring:message code="index.curse.ALICE.student.text"/>" picSrc="${contextPath}/<spring:theme code="index-teachingtool-pic3"/>" ></curse-introduction>
+    				data-aos-duration="700" flexDirection="reverse-row"  textTitle="教師課程" textContent="<spring:message code="index.curse.ALICE.teacher.text"/>" picSrc="${contextPath}/<spring:theme code="index-teachingtool-pic3"/>" ></curse-introduction>
 				</div>
 			</div>
 			<div class="showcase">

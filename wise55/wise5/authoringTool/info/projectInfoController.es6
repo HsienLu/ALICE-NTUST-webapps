@@ -25,7 +25,8 @@ class ProjectInfoController {
         this.UtilService = UtilService;
         this.$translate = this.$filter('translate');
         this.message = '確認中'; //新加的
-        this.timer=null;//新加的          
+        this.timer=null;//新加的         
+        this.envPath='http://140.118.164.6:3000' //新家的
         // process metadata
         this.metadata = this.ProjectService.getProjectMetadata();
         this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
@@ -140,7 +141,7 @@ class ProjectInfoController {
     getWorkgroupPublicState() {
         const projectId = this.ConfigService.config.projectId;
         return new Promise((resolve, reject) => {
-            fetch('http://140.118.164.6:3000/getOneWorkgroupTag', {
+            fetch(this.envPath+'/getOneWorkgroupTag', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -173,7 +174,7 @@ class ProjectInfoController {
             if(this.message === "不公開"){
                 $.ajax({
                     type:'POST',
-                    url:'http://140.118.164.6:3000/addLibraryTag',
+                    url:this.envPath+'/addLibraryTag',
                     data: JSON.stringify({
                         "project_fk": projectId
                     }),
@@ -192,7 +193,7 @@ class ProjectInfoController {
             }else{
                 $.ajax({
                     type:'DELETE',
-                    url:'http://140.118.164.6:3000/deleteLibraryTag',
+                    url:this.envPath+'/deleteLibraryTag',
                     data: JSON.stringify({
                         "project_fk": projectId
                     }),
