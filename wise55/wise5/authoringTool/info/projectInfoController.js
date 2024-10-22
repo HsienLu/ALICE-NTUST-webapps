@@ -26,10 +26,11 @@ var ProjectInfoController = /*#__PURE__*/function () {
     this.$translate = this.$filter('translate');
     this.message = '確認中'; //新加的
     this.timer = null; //新加的         
-    this.envPath = 'http://140.118.164.6:3000/workgroups'; //新家的
+    this.envPath = this.ConfigService.getWISEBaseURL().slice(0, -1) + ':3000/workgroups'; //新家的
     // process metadata
     this.metadata = this.ProjectService.getProjectMetadata();
     this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
+    this.wiseBaseURL = this.ConfigService.getWISEBaseURL(); //
     this.processMetadataAuthoring();
     this.getWorkgroupPublicState();
   }
@@ -130,6 +131,7 @@ var ProjectInfoController = /*#__PURE__*/function () {
     key: "getWorkgroupPublicState",
     value: function getWorkgroupPublicState() {
       var _this = this;
+      console.log(this.envPath);
       var projectId = this.ConfigService.config.projectId;
       return new Promise(function (resolve, reject) {
         fetch(_this.envPath + '/getOneWorkgroupTag', {
