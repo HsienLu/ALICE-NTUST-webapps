@@ -13,3 +13,9 @@ wise55/WEB-INF/classes/wise.properties
 /opt/tomcat/webapps/webapps/hello/*
 webapps/hello
 .env
+./wise5/env.es6
+./wise5/env.js
+/opt/tomcat/webapps/wise55/wise5/env.es6
+/opt/tomcat/webapps/wise55/wise5/env.js
+wise55/wise5/env.es6
+wise55/wise5/env.js

@@ -11,7 +11,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var ProjectInfoController = /*#__PURE__*/function () {
-  function ProjectInfoController($filter, $mdDialog, $rootScope, $state, $stateParams, $scope, $timeout, ConfigService, ProjectService, UtilService) {
+  function ProjectInfoController($filter, $mdDialog, $rootScope, $state, $stateParams, $scope, $timeout, ConfigService, ProjectService, UtilService, API_URL) {
     _classCallCheck(this, ProjectInfoController);
     this.$filter = $filter;
     this.$mdDialog = $mdDialog;
@@ -26,7 +26,8 @@ var ProjectInfoController = /*#__PURE__*/function () {
     this.$translate = this.$filter('translate');
     this.message = '確認中'; //新加的
     this.timer = null; //新加的         
-    this.envPath = 'http://127.0.0.1:3000/workgroups'; //新家的
+    // this.envPath='http://140.118.164.6:3000/workgroups' //新家的
+    this.envPath = API_URL;
     // process metadata
     this.metadata = this.ProjectService.getProjectMetadata();
     this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
@@ -205,5 +206,5 @@ var ProjectInfoController = /*#__PURE__*/function () {
     }
   }]);
 }();
-ProjectInfoController.$inject = ['$filter', '$mdDialog', '$rootScope', '$state', '$stateParams', '$scope', '$timeout', 'ConfigService', 'ProjectService', 'UtilService'];
+ProjectInfoController.$inject = ['$filter', '$mdDialog', '$rootScope', '$state', '$stateParams', '$scope', '$timeout', 'ConfigService', 'ProjectService', 'UtilService', 'API_URL'];
 var _default = exports["default"] = ProjectInfoController;

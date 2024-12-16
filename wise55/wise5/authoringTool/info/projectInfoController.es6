@@ -11,7 +11,7 @@ class ProjectInfoController {
                 $timeout,
                 ConfigService,
                 ProjectService,
-                UtilService) {
+                UtilService,API_URL) {
 
         this.$filter = $filter;
         this.$mdDialog = $mdDialog;
@@ -26,7 +26,8 @@ class ProjectInfoController {
         this.$translate = this.$filter('translate');
         this.message = '確認中'; //新加的
         this.timer=null;//新加的         
-        this.envPath='http://127.0.0.1:3000/workgroups' //新家的
+        // this.envPath='http://140.118.164.6:3000/workgroups' //新家的
+        this.envPath = API_URL;
         // process metadata
         this.metadata = this.ProjectService.getProjectMetadata();
         this.metadataAuthoring = this.ConfigService.getConfigParam("projectMetadataSettings");
@@ -232,7 +233,8 @@ ProjectInfoController.$inject = [
     '$timeout',
     'ConfigService',
     'ProjectService',
-    'UtilService'
+    'UtilService',
+    'API_URL'
 ];
 
 export default ProjectInfoController;

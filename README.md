@@ -15,7 +15,13 @@
 ```bash
 npx babel "被轉化的檔案路徑" --out-file "轉化後的檔案路徑" 
 ```
-需要將輸出的檔案保留原本路徑結構，可以使用 --copy-files 和路徑模擬工具(待測試)
+需要將輸出的檔案保留原本路徑結構，可以使用 --copy-files 和路徑模擬工具(待測試)且只監聽es6
+
 ```bash
-npx babel src --watch --out-dir . --copy-files
+npx babel ../wise5 --watch --extensions ".es6" --out-dir . --copy-files
+```
+
+跳過一開始就全部編譯，可以使用 --skip-initial-build
+```bash
+npx babel ../wise5 --watch --extensions ".es6" --out-dir . --copy-files --skip-initial-build
 ```

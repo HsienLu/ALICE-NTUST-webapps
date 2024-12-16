@@ -61,7 +61,7 @@ import UtilService from '../services/utilService';
 import WISELinkAuthoringController from './wiseLink/wiseLinkAuthoringController';
 
 import angularSummernote from 'lib/angular-summernote/dist/angular-summernote.min';
-
+import apiURL from '../env'
 let authoringModule = angular.module('authoring', [
     angularDragula(angular),
     'angularMoment',
@@ -94,6 +94,7 @@ let authoringModule = angular.module('authoring', [
     'tableComponentModule',
     'ui.router'
     ])
+    .constant('API_URL', apiURL)
     .service(AnnotationService.name, AnnotationService)
     .service(AuthorWebSocketService.name, AuthorWebSocketService)
     .service(ConfigService.name, ConfigService)
