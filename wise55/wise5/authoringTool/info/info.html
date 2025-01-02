@@ -28,4 +28,9 @@
     <p class="status-text" style="align-self: center;">目前狀態: <strong>{{projectInfoController.message}}</strong></p>
     </div>
 </div>
-
+<div style="margin-top: 3rem;" class="btn btn-default">
+    <a class="vertical-center" ng-href="/teacher/run/createRun.html?projectId={{projectInfoController.ConfigService.config.projectId}}">
+        實施課程
+        <span style="vertical-align: text-top;" class="glyphicon glyphicon-arrow-right vertical-center" aria-hidden="true"></span>
+    </a>
+</div>
