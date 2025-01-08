@@ -61,7 +61,7 @@ function validateLoginForm() {
 							<input type="submit" id="signInButton" name="signInButton" class="wisebutton smallbutton" value="<spring:message code="signIn"/>"></input>
 						</div>
 					</form>
-			    	<div id="forgotLogin">
+			    	<div id="forgotLogin" style="position: static;">
 				        <ul id="signInLinkPosition"> <!-- TODO: make these open in top window -->
 						    <li><a href="forgotaccount/selectaccounttype" class="forgotlink"><spring:message code="login.forgot"/></a></li>
 				       	    <li><a href="join" class="joinlink"><spring:message code="login.createAccount"/></a></li>

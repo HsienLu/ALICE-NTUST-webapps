@@ -744,8 +744,7 @@ a#name img{
     top: 112px;
 }
 #signInLinkPosition{
-	margin-top: 157px;
-	margin-left: 92px;
+	/* position: absolute; */
 }
 
 
