@@ -40,8 +40,8 @@
 
 								<h5 style="margin:.5em;">
 									<spring:message code="teacher.run.create.createrunconfigure.howManyStudentsPerComputer"/><br/>
-									<form:radiobutton path="maxWorkgroupSize" value='1'/><spring:message code="teacher.run.create.createrunconfigure.always1"/><br/>
-									<form:radiobutton path="maxWorkgroupSize" value='${maxWorkgroupSize}'/><spring:message code="teacher.run.create.createrunconfigure.1to"/>${maxWorkgroupSize} <spring:message code="teacher.run.create.createrunconfigure.studentsPerComputer"/>
+									<form:radiobutton path="maxWorkgroupSize" value='1' checked="checked"/><spring:message code="teacher.run.create.createrunconfigure.always1"/><br/>
+									<!-- <form:radiobutton path="maxWorkgroupSize" value='${maxWorkgroupSize}'/><spring:message code="teacher.run.create.createrunconfigure.1to"/>${maxWorkgroupSize} <spring:message code="teacher.run.create.createrunconfigure.studentsPerComputer"/> -->
 								</h5>
 								<h5 style="margin:.5em;">
 									<spring:message code="teacher.run.create.createrunconfigure.enableRealTimeStudentMonitoring"/> (<spring:message code="teacher.run.create.createrunconfigure.enableRealTimeStudentMonitoringInformation"/> <a href="${contextPath}/pages/teacherfaq.html#realtime" target="_blank"><spring:message code="teacher.run.create.createrunconfigure.enableRealTimeStudentMonitoringFAQ"/></a>)<br/>
