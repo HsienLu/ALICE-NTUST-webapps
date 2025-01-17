@@ -56,6 +56,10 @@
             background-color: #f9f9f9;
             
             }
+            button{
+                padding-left: 0;
+                padding-right: 0;
+            }
         `
 		constructor(){
 			super();
