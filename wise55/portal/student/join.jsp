@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="../include.jsp"%>
 
 <!DOCTYPE html>
@@ -357,6 +358,16 @@ function checkRunCode() {
 	previousRunCode = runCode;
 }
 </script>
+<script>
+	function splitFullName() {
+    var fullname = document.getElementById('fullname').value;
+    var firstname = fullname.charAt(0) || '';
+    var lastname = fullname.slice(1) || '';
+    
+    document.getElementById('firstname').value = firstname;
+    document.getElementById('lastname').value = lastname;
+}
+</script>
 </head>
 <body>
 <%@ page buffer="64kb" %>
@@ -386,6 +397,14 @@ function checkRunCode() {
 					<form:form id="studentRegForm" commandName="studentAccountForm" method="post" action="join" autocomplete='off'>
 
 					  <table class="regTable">
+						<tr>
+							<td><label for="fullname" id="fullname1">帳號：</label></td>
+							<td>
+								<input type="text" id="fullname" size="25" maxlength="50" tabindex="1" oninput="splitFullName()" />
+						
+								<span class="hint">必須填寫<span class="hint-pointer"></span></span>
+							</td>
+						</tr>
 					  	<tr>
 					  		<td><label for="studentFirstName"><spring:message code="student.registerstudent.firstName"/></label></td>
 					  	  	<td><form:input path="userDetails.firstname" id="firstname" size="25" maxlength="25" tabindex="1"/>
