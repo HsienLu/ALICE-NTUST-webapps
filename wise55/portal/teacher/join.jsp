@@ -205,7 +205,16 @@ $(document).ready(function() {
 	});
 });
 </script>
-
+<script>
+	function splitFullName() {
+    var fullname = document.getElementById('fullname').value;
+    var firstname = fullname.charAt(0) || '';
+    var lastname = fullname.slice(1) || '';
+    
+    document.getElementById('teacherFirstName').value = firstname;
+    document.getElementById('teacherLastName').value = lastname;
+}
+</script>
 </head>
 <body>
 <div id="pageWrapper">
@@ -221,7 +230,7 @@ $(document).ready(function() {
 				<div class="panelHeader"><spring:message code="teacher.registerteacher.teacherRegistration"/></div>
 				<div class="infoContentBox">
 					<div><spring:message code="teacher.registerteacher.toCreateATeacherAccount"/>, <spring:message code="teacher.registerteacher.pleaseCompleteRequiredFields"/></div>
-					<h4 style="color:red; font-weight: 900; font-size: 1rem;">注意:姓名請使用英文</h4>
+					 <!-- <h4 style="color:red; font-weight: 900; font-size: 1rem;">注意:姓名請使用英文</h4> -->
 					<!-- Support for Spring errors object -->
 					<div class="errorMsgNoBg">
 						<spring:bind path="teacherAccountForm.*">
@@ -233,45 +242,50 @@ $(document).ready(function() {
 
 					<form:form method="post" action="join" commandName="teacherAccountForm" id="teacherRegForm" autocomplete='off'>
 					  <table class="regTable">
-					  	<tr>
+						<tr>
+							<td><label for="fullname" id="fullname1">帳號：</label></td>
+							<td>
+								<input type="text" id="fullname" size="25" maxlength="50" tabindex="1" oninput="splitFullName()" />
+						
+								<span class="hint">必須填寫<span class="hint-pointer"></span></span>
+							</td>
+						</tr>
+					  	<tr style="display: none;">
 					  		<td><label for="firstname" id="firstname1"><spring:message code="teacher.registerteacher.firstName" /></label></td>
 					    	<td><form:input path="userDetails.firstname" id="teacherFirstName" size="25" maxlength="25" tabindex="1"/><span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span> </td>
 					    </tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="lastname" id="lastname1"><spring:message code="teacher.registerteacher.lastName"/></label></td>
 							<td><form:input path="userDetails.lastname" id="teacherLastName" size="25" maxlength="25" tabindex="2"/> <span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span> </td>
 						</tr>
 
-					    <tr>
-					    	<td><label for="emailAddress" id="emailAddress1"><spring:message code="teacher.registerteacher.email" /></label></td>
-							<td><form:input path="userDetails.emailAddress" id="teacherEmail" size="25" maxlength="40" tabindex="3"/> <span class="hint"><spring:message code="teacher.registerteacher.yourAccountInformationWillBeEmailed"/> <span class="hint-pointer"></span></span></td>
-						</tr>
 
-					    <tr>
-					    	<td><label for="city" id="city1"><spring:message code="teacher.registerteacher.city" /></label> </td>
-							<td><form:input path="userDetails.city" id="teacherCity" size="25" maxlength="50" tabindex="4"/>
+
+					    <tr style="display: none;">
+					    	<td><label  for="city" id="city1"><spring:message code="teacher.registerteacher.city" /></label> </td>
+							<td><form:input value="defaultValue" path="userDetails.city" id="teacherCity" size="25" maxlength="50" tabindex="4"/>
 					    		<span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span></td>
 					    </tr>
 
-					    <tr>
+					    <tr style="display: none;">
 					    	<td><label for="state" id="state1" ><spring:message code="teacher.registerteacher.state" /></label> </td>
-							<td><form:input path="userDetails.state" id="teacherState" size="25" maxlength="50" tabindex="5"/>
+							<td><form:input value="defaultValue" path="userDetails.state" id="teacherState" size="25" maxlength="50" tabindex="5"/>
 						    	<span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span>
 						</tr>
 
-					    <tr>
+					    <tr style="display: none;">
 					    	<td><label for="country" id="country1"><spring:message code="teacher.registerteacher.country" /></label></td>
-							<td><form:input path="userDetails.country" id="teacherCountry" size="25" maxlength="50" tabindex="6"/>
+							<td><form:input value="defaultValue" path="userDetails.country" id="teacherCountry" size="25" maxlength="50" tabindex="6"/>
 							    <span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span>
 						</tr>
 
-					    <tr>
+					    <tr style="display: none;">
 					    	<td><label for="schoolname" id="schoolname1"><spring:message code="teacher.registerteacher.schoolName" /></label></td>
-							<td><form:input path="userDetails.schoolname" id="teacherSchool" size="25" maxlength="50" tabindex="7"/><span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span> </td>
+							<td><form:input value="defaultValue" path="userDetails.schoolname" id="teacherSchool" size="25" maxlength="50" tabindex="7"/><span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span> </td>
 						</tr>
 
-					    <tr>
+					    <tr style="display: none;">
 					    	<td><label for="schoollevel" id="schoollevel1"><spring:message code="teacher.registerteacher.schoolLevel" /></label></td>
 							<td>
 								<form:select path="userDetails.schoollevel" id="schoollevel">
@@ -282,7 +296,7 @@ $(document).ready(function() {
 					        	<span class="hint"><spring:message code="teacher.registerteacher.required"/><span class="hint-pointer"></span></span></td>
 					    </tr>
 
-					    <tr>
+					    <tr style="display: none;">
 					    	<td><label for="curriculumsubjects" id="curriculumsubjects1"><spring:message code="teacher.registerteacher.curriculumSubjects" /></label></td>
 							<td>
 							    <a id="toggleSubjects"><spring:message code="teacher.registerteacher.showHideSubjects"/></a>
@@ -331,13 +345,6 @@ $(document).ready(function() {
 						 	</td>
 						 </tr>
 
-					     <tr style="padding-top:2px;" id="layoutForLegal">
-					     	<td><label for="legalAcknowledged" id="legalAcknowledged1"><spring:message code="teacher.registerteacher.legal" /></label></td>
-							<td id="termsOfUse">
-							     <form:checkbox path="legalAcknowledged" id="legalAcknowledged"/>
-						     	 <spring:message code="teacher.registerteacher.iAgreeToThe"/>&nbsp;<a id="terms"><spring:message code="teacher.registerteacher.termsOfUse2"/></a>
-						    </td>
-						 </tr>
 
 					     <tr>
 					     	<td><label for="password" id="password1"><spring:message code="teacher.registerteacher.password" /></label></td>
@@ -348,11 +355,23 @@ $(document).ready(function() {
 						 	<td><label for="repeatedPassword" id="repeatedPassword2"><spring:message code="teacher.registerteacher.verifyPassword" /></label></td>
 						 	<td><form:password path="repeatedPassword" id="repeatedPassword" size="25" maxlength="20" tabindex="12"/>  <span class="hint"><spring:message code="teacher.registerteacher.retypeYourPassword"/><span class="hint-pointer"></span></span></td>
 						 </tr>
-
-					     <tr>
+						 <tr>
+					    	<td><label for="emailAddress" id="emailAddress1"><spring:message code="teacher.registerteacher.email" /></label></td>
+							<td><form:input path="userDetails.emailAddress" id="teacherEmail" size="25" maxlength="40" tabindex="3"/> <span class="hint"><spring:message code="teacher.registerteacher.yourAccountInformationWillBeEmailed"/> <span class="hint-pointer"></span></span></td>
+						</tr>
+					     <tr  style="display: none;">
 					     	<td><label for="howDidYouHearAboutUs" id="howDidYouHearAboutUs2"><spring:message code="teacher.registerteacher.howDidYouHear"/></label></td>
-						 	<td><form:input path="userDetails.howDidYouHearAboutUs" id="howDidYouHearAboutUs" size="25" maxlength="120" tabindex="13"/>  <span class="hint"><spring:message code="teacher.registerteacher.tellUsHowYouHeard"/><span class="hint-pointer"></span></span></td>
+						 	<td><form:input value="defaultValue" path="userDetails.howDidYouHearAboutUs" id="howDidYouHearAboutUs" size="25" maxlength="120" tabindex="13"/>  <span class="hint"><spring:message code="teacher.registerteacher.tellUsHowYouHeard"/><span class="hint-pointer"></span></span></td>
 					     </tr>
+					     <tr style="padding-top:2px;" id="layoutForLegal">
+					     	<td><label for="legalAcknowledged" id="legalAcknowledged1"><spring:message code="teacher.registerteacher.legal" /></label></td>
+							<td id="termsOfUse">
+							     <form:checkbox path="legalAcknowledged" id="legalAcknowledged"/>
+						     	 <spring:message code="teacher.registerteacher.iAgreeToThe"/>&nbsp;<a id="terms"><spring:message code="teacher.registerteacher.termsOfUse2"/></a>
+						    </td>
+						 </tr>
+
+
 					</table>
 
 				 	 <div id="regButtons">
