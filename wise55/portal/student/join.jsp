@@ -397,6 +397,7 @@ function checkRunCode() {
 					<form:form id="studentRegForm" commandName="studentAccountForm" method="post" action="join" autocomplete='off'>
 
 					  <table class="regTable">
+						<!--
 						<tr>
 							<td><label for="fullname" id="fullname1">帳號：</label></td>
 							<td>
@@ -405,6 +406,7 @@ function checkRunCode() {
 								<span class="hint">必須填寫<span class="hint-pointer"></span></span>
 							</td>
 						</tr>
+					-->
 					  	<tr>
 					  		<td><label for="studentFirstName"><spring:message code="student.registerstudent.firstName"/></label></td>
 					  	  	<td><form:input path="userDetails.firstname" id="firstname" size="25" maxlength="25" tabindex="1"/>
@@ -421,10 +423,15 @@ function checkRunCode() {
 						   	</td>
 						</tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="studentGender"><spring:message code="student.registerstudent.gender"/></label></td>
-							<td><form:select path="userDetails.gender" id="gender" tabindex="3">
+							<td>
+								<form:select path="userDetails.gender" id="gender" tabindex="3">
+									<option value="UNSPECIFIED">
+						            	未回答
+						            </option>
 						          <c:forEach items="${genders}" var="genderchoice">
+
 						            <form:option value="${genderchoice}">
 						            	<spring:message code="genders.${genderchoice}" />
 						            </form:option>
@@ -477,7 +484,7 @@ function checkRunCode() {
 				            </td>
 				        </tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="reminderQuestion"><spring:message code="student.registerstudent.securityQuestion"/></label></td>
 					  		<td><form:select path="userDetails.accountQuestion" id="accountQuestion" tabindex="8" >
 					            <form:errors path="userDetails.accountQuestion" />
@@ -491,9 +498,9 @@ function checkRunCode() {
 							</td>
 						</tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="reminderAnswer" id="reminderAnswer"><spring:message code="student.registerstudent.securityQuestionAnswer"/></label></td>
-							<td><form:input path="userDetails.accountAnswer" id="accountAnswer" size="25" maxlength="25" tabindex="9"/>
+							<td><form:input path="userDetails.accountAnswer" id="accountAnswer" size="25" maxlength="25" tabindex="9" value="defaultValue" />
 								<span class="hint"><spring:message code="student.registerstudent.securityQuestionAnswerHelp"/><span class="hint-pointer"></span></span>
 						    </td>
 						</tr>
