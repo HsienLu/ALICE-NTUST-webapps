@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="../include.jsp"%>
 
 <!DOCTYPE html>
@@ -98,13 +99,13 @@ function checkForExistingAccountsAndCreateAccount() {
 	var lastName = $('#lastname').val();
 
 	//check to make sure first name and last name are latin-based characters
-	 if ( /[^a-zA-Z0-9]/.test( firstName ) ) {
-		alert("<spring:message code='error.firstname-illegal-characters'/>");
-		return;
-	 } else if ( /[^a-zA-Z0-9]/.test( lastName ) ) {
-		alert("<spring:message code='error.lastname-illegal-characters'/>");
-		return;
-     }
+	//  if ( /[^a-zA-Z0-9]/.test( firstName ) ) {
+	// 	alert("<spring:message code='error.firstname-illegal-characters'/>");
+	// 	return;
+	//  } else if ( /[^a-zA-Z0-9]/.test( lastName ) ) {
+	// 	alert("<spring:message code='error.lastname-illegal-characters'/>");
+	// 	return;
+    //  }
 
 	if (!isCreateAccountParametersValid()) {
 		//create account parameters are not valid
@@ -357,6 +358,16 @@ function checkRunCode() {
 	previousRunCode = runCode;
 }
 </script>
+<script>
+	function splitFullName() {
+    var fullname = document.getElementById('fullname').value;
+    var firstname = fullname.charAt(0) || '';
+    var lastname = fullname.slice(1) || '';
+    
+    document.getElementById('firstname').value = firstname;
+    document.getElementById('lastname').value = lastname;
+}
+</script>
 </head>
 <body>
 <%@ page buffer="64kb" %>
@@ -386,6 +397,16 @@ function checkRunCode() {
 					<form:form id="studentRegForm" commandName="studentAccountForm" method="post" action="join" autocomplete='off'>
 
 					  <table class="regTable">
+						<!--
+						<tr>
+							<td><label for="fullname" id="fullname1">帳號：</label></td>
+							<td>
+								<input type="text" id="fullname" size="25" maxlength="50" tabindex="1" oninput="splitFullName()" />
+						
+								<span class="hint">必須填寫<span class="hint-pointer"></span></span>
+							</td>
+						</tr>
+					-->
 					  	<tr>
 					  		<td><label for="studentFirstName"><spring:message code="student.registerstudent.firstName"/></label></td>
 					  	  	<td><form:input path="userDetails.firstname" id="firstname" size="25" maxlength="25" tabindex="1"/>
@@ -402,10 +423,15 @@ function checkRunCode() {
 						   	</td>
 						</tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="studentGender"><spring:message code="student.registerstudent.gender"/></label></td>
-							<td><form:select path="userDetails.gender" id="gender" tabindex="3">
+							<td>
+								<form:select path="userDetails.gender" id="gender" tabindex="3">
+									<option value="UNSPECIFIED">
+						            	未回答
+						            </option>
 						          <c:forEach items="${genders}" var="genderchoice">
+
 						            <form:option value="${genderchoice}">
 						            	<spring:message code="genders.${genderchoice}" />
 						            </form:option>
@@ -458,7 +484,7 @@ function checkRunCode() {
 				            </td>
 				        </tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="reminderQuestion"><spring:message code="student.registerstudent.securityQuestion"/></label></td>
 					  		<td><form:select path="userDetails.accountQuestion" id="accountQuestion" tabindex="8" >
 					            <form:errors path="userDetails.accountQuestion" />
@@ -472,9 +498,9 @@ function checkRunCode() {
 							</td>
 						</tr>
 
-					  	<tr>
+					  	<tr style="display: none;">
 					  		<td><label for="reminderAnswer" id="reminderAnswer"><spring:message code="student.registerstudent.securityQuestionAnswer"/></label></td>
-							<td><form:input path="userDetails.accountAnswer" id="accountAnswer" size="25" maxlength="25" tabindex="9"/>
+							<td><form:input path="userDetails.accountAnswer" id="accountAnswer" size="25" maxlength="25" tabindex="9" value="defaultValue" />
 								<span class="hint"><spring:message code="student.registerstudent.securityQuestionAnswerHelp"/><span class="hint-pointer"></span></span>
 						    </td>
 						</tr>
