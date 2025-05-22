@@ -1,7 +1,14 @@
 <link rel="stylesheet" type="text/css" href="wise5/lib/drawingTool/drawing-tool.css">
 
 <div ng-controller='DrawController as drawController' flex>
+        <div style="margin: 2rem;">
+            <button  ng-click="drawController.openWhiteboardWindow()">開啟共編白板 </button>
+            <button ng-click="drawController.test()">TEst</button>
+        </div>
+
     <div ng-if='drawController.mode === "authoring" && !drawController.authoringComponentContent.showPreviousWork'>
+        
+        <br/>
                 <textarea ng-model='drawController.authoringComponentContent.prompt'
                           ng-change='drawController.authoringViewComponentChanged()'
                           ng-model-options='{ debounce: 1000 }'
@@ -32,6 +39,7 @@
                     <button ng-click='drawController.authoringStampUpClicked($index)'>{{ 'UP' | translate }}</button>
                     <button ng-click='drawController.authoringStampDownClicked($index)'>{{ 'DOWN' | translate }}</button>
                     <button ng-click='drawController.authoringDeleteStampClicked($index)'>{{ 'DELETE' | translate }}</button>
+                    
                 </div>
                 <button ng-click='drawController.authoringAddStampButtonClicked()'>{{ 'draw.addStamp' | translate }}</button>
                 <br/>

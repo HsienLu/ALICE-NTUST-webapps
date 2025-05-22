@@ -40,7 +40,9 @@ var DrawController = function () {
         this.StudentAssetService = StudentAssetService;
         this.StudentDataService = StudentDataService;
         this.UtilService = UtilService;
-
+        //新加的
+        this.userData= null;
+        this.userData= this.getUserData();
         this.$translate = this.$filter('translate');
 
         this.idToOrder = this.ProjectService.idToOrder;
@@ -550,6 +552,27 @@ var DrawController = function () {
             // close the popup
             _this.$mdDialog.hide();
         });
+
+        //新加的
+        this.$scope.getUserData=function getUserDatad() {
+            var userName = this.ConfigService.config.userInfo.myUserInfo.userName;
+            var userId = this.ConfigService.config.userInfo.myUserInfo.workgroupId;
+            
+            var match = userName.match(/\(([^)]+)\)/);
+            
+            if (match) {
+                userName = match[1]; // 將括號內的內容存回 userName
+                
+            } else {
+                console.log("未找到括號內的資料");
+            }
+            this.userData = userName + '-' + userId;
+            
+            console.log(this.userData)
+            return this.userData
+        }.bind(this)
+
+
     } // end of constructor
 
     /**
@@ -2398,6 +2421,61 @@ var DrawController = function () {
 
             // the authoring component content has changed so we will save the project
             this.authoringViewComponentChanged();
+        }
+    }, {
+        key: 'getUserData',
+        value: function getUserDatad() {
+            var userName = this.ConfigService.config.userInfo.myUserInfo.userName;
+            var userId = this.ConfigService.config.userInfo.myUserInfo.workgroupId;
+            
+            var match = userName.match(/\(([^)]+)\)/);
+            
+            if (match) {
+                userName = match[1]; // 將括號內的內容存回 userName
+                
+            } else {
+                console.log("未找到括號內的資料");
+            }
+            this.userData = userName + '-' + userId;
+            
+            return this.userData
+        }
+    },{
+        key: 'openWhiteboardWindow',
+        value: function openWhiteboardWindow(userId, userData) {
+            var userData = this.userData
+            var userId = this.ConfigService.config.userInfo.myUserInfo.workgroupId;
+            var runUserId = this.ConfigService.config.runId
+            // 要開啟的頁面網址
+            var url = `https://cloud13.de/testwhiteboard/?whiteboardid=wise${runUserId}&username=${userData}`;
+        
+            // 固定視窗名稱
+            var windowName = '共編白板';
+        
+            // 預設視窗寬高
+            var width = 800;
+            var height = 600;
+        
+            // 計算視窗位置，讓視窗居中
+            var left = (screen.width / 2) - (width / 2);
+            var top = (screen.height / 2) - (height / 2);
+        
+            // 設定視窗參數
+            var features = `width=${width},height=${height},top=${top},left=${left},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`;
+        
+            // 開啟新視窗
+            var newWindow = window.open(url, windowName, features);
+        
+            // 檢查是否成功開啟
+            if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                console.error('無法開啟新視窗，可能被瀏覽器阻擋');
+            }
+        }
+    },{
+        key: 'test',
+        value: function test() {
+            var userId = this.ConfigService.config.runId
+            console.log(userId)
         }
     }]);
 
