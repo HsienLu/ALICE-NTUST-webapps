@@ -3,7 +3,7 @@
 <div ng-controller='DrawController as drawController' flex>
         <div style="margin: 2rem;">
             <button  ng-click="drawController.openWhiteboardWindow()">開啟共編白板 </button>
-            <button ng-click="drawController.test()">TEst</button>
+            <!-- <button ng-click="drawController.test()">TEst</button> -->
         </div>
 
     <div ng-if='drawController.mode === "authoring" && !drawController.authoringComponentContent.showPreviousWork'>
