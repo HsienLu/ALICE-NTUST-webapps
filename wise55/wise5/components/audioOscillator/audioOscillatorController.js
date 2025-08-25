@@ -11,7 +11,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var AudioOscillatorController = function () {
-    function AudioOscillatorController($filter, $injector, $mdDialog, $q, $rootScope, $scope, $timeout, AnnotationService, ConfigService, NodeService, AudioOscillatorService, ProjectService, StudentAssetService, StudentDataService, UtilService) {
+    function AudioOscillatorController($filter, $injector, $mdDialog, $q, $rootScope, $scope, $timeout, $sce, AnnotationService, ConfigService, NodeService, AudioOscillatorService, ProjectService, StudentAssetService, StudentDataService, UtilService) {
         var _this2 = this;
 
         _classCallCheck(this, AudioOscillatorController);
@@ -37,7 +37,10 @@ var AudioOscillatorController = function () {
 
         // the node id of the current node
         this.nodeId = null;
-
+        // the domain of the project
+        this.$sce = $sce;
+        this.domain = null;
+        this.trustedDomain = null;
         // the component id
         this.componentId = null;
 
@@ -563,8 +566,12 @@ var AudioOscillatorController = function () {
      * Load the parameters from the component content object
      */
 
-
-    _createClass(AudioOscillatorController, [{
+    _createClass(AudioOscillatorController, [ {
+        key: '$onInit',
+        value: function $onInit() {
+          this.getDomain(); // 一進來就跑
+        }
+      },{
         key: 'setParametersFromComponentContent',
         value: function setParametersFromComponentContent() {
             if (this.componentContent.startingFrequency != null) {
@@ -2059,14 +2066,40 @@ var AudioOscillatorController = function () {
             // the authoring component content has changed so we will save the project
             this.authoringViewComponentChanged();
         }
-    }]);
+    }, {
+        key: 'getDomain',
+        value: function getDomain() {
+            // 可能回傳字串或 Promise；$q.when 兩者都能吃，且會帶動 digest
+            var maybePromise = this.AudioOscillatorService.getDomain();
+
+            this.$q.when(maybePromise).then(function (baseUrl) {
+            // 依 mode 加參數（安全處理 ?/&）
+            var url = baseUrl || '';
+            if (this.mode === 'authoring') {
+                url += (url.indexOf('?') === -1 ? '?' : '&') + 'role=teacher';
+            }
+
+            // 1) 保留原始字串給畫面/除錯
+            this.domain = url;
+
+            // 2) 另外存 trusted 給 <audio>/<iframe> 的 ng-src 用
+            this.trustedDomain = this.$sce.trustAsResourceUrl(url);
+
+            // debug
+            console.log('mode:', this.mode);
+            console.log('domain:', this.domain);
+            console.log('trusted:', this.trustedDomain);
+            }.bind(this));
+        }
+    }
+]);
 
     return AudioOscillatorController;
 }();
 
 ;
 
-AudioOscillatorController.$inject = ['$filter', '$injector', '$mdDialog', '$q', '$rootScope', '$scope', '$timeout', 'AnnotationService', 'ConfigService', 'NodeService', 'AudioOscillatorService', 'ProjectService', 'StudentAssetService', 'StudentDataService', 'UtilService'];
+AudioOscillatorController.$inject = ['$filter', '$injector', '$mdDialog', '$q', '$rootScope', '$scope', '$timeout','$sce', 'AnnotationService', 'ConfigService', 'NodeService', 'AudioOscillatorService', 'ProjectService', 'StudentAssetService', 'StudentDataService', 'UtilService'];
 
 exports.default = AudioOscillatorController;
 //# sourceMappingURL=audioOscillatorController.js.map

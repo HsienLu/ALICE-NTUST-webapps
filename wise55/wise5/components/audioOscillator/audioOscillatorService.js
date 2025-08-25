@@ -183,6 +183,12 @@ var AudioOscillatorService = function (_NodeService) {
         value: function componentUsesSubmitButton() {
             return true;
         }
+    }, {
+        key: 'getDomain',
+        value: function getDomain() {
+            var proto = window.location.protocol;  
+            return proto + "//" + window.location.hostname + ":3003";
+        }
     }]);
 
     return AudioOscillatorService;
