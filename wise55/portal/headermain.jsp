@@ -151,5 +151,7 @@
 		</script>
 	</div>
 </div>
-
+<script>
+  console.log("contextPath = '${contextPath}'");
+</script>
 <%@ include file="./web-component/DorpDown.jsp"%>

@@ -2070,7 +2070,7 @@ var AudioOscillatorController = function () {
         key: 'getDomain',
         value: function getDomain() {
             // 可能回傳字串或 Promise；$q.when 兩者都能吃，且會帶動 digest
-            var maybePromise = this.AudioOscillatorService.getDomain();
+            var maybePromise = 'ai-component'
 
             this.$q.when(maybePromise).then(function (baseUrl) {
             // 依 mode 加參數（安全處理 ?/&）

@@ -187,7 +187,7 @@ var AudioOscillatorService = function (_NodeService) {
         key: 'getDomain',
         value: function getDomain() {
             var proto = window.location.protocol;  
-            return proto + "//" + window.location.hostname + ":3003";
+            return  "http//localhost:3003";
         }
     }]);
 
