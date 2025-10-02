@@ -566,12 +566,12 @@ var AudioOscillatorController = function () {
      * Load the parameters from the component content object
      */
 
-    _createClass(AudioOscillatorController, [ {
+    _createClass(AudioOscillatorController, [{
         key: '$onInit',
         value: function $onInit() {
-          this.getDomain(); // 一進來就跑
+            this.getDomain(); // 一進來就跑
         }
-      },{
+    }, {
         key: 'setParametersFromComponentContent',
         value: function setParametersFromComponentContent() {
             if (this.componentContent.startingFrequency != null) {
@@ -1867,7 +1867,7 @@ var AudioOscillatorController = function () {
              * Listen for the 'exit' event which is fired when the student exits
              * the VLE. This will perform saving before the VLE exits.
              */
-            exitListener = this.$scope.$on('exit', angular.bind(this, function (event, args) {}));
+            exitListener = this.$scope.$on('exit', angular.bind(this, function (event, args) { }));
         }
     }, {
         key: 'componentHasWork',
@@ -2069,37 +2069,78 @@ var AudioOscillatorController = function () {
     }, {
         key: 'getDomain',
         value: function getDomain() {
+
             // 可能回傳字串或 Promise；$q.when 兩者都能吃，且會帶動 digest
-            var maybePromise = 'ai-component'
+            var maybePromise = 'ai-component'; // 建議補成完整 base URL
 
             this.$q.when(maybePromise).then(function (baseUrl) {
-            // 依 mode 加參數（安全處理 ?/&）
-            var url = baseUrl || '';
-            if (this.mode === 'authoring') {
-                url += (url.indexOf('?') === -1 ? '?' : '&') + 'role=teacher';
-            }
-
-            // 1) 保留原始字串給畫面/除錯
-            this.domain = url;
-
-            // 2) 另外存 trusted 給 <audio>/<iframe> 的 ng-src 用
-            this.trustedDomain = this.$sce.trustAsResourceUrl(url);
-
-            // debug
-            console.log('mode:', this.mode);
-            console.log('domain:', this.domain);
-            console.log('trusted:', this.trustedDomain);
-            }.bind(this));
+                var url = baseUrl || '';
+            
+                // 讀取 cfg
+                var cfg = this.ConfigService?.config || {};
+                var userName   = cfg.userInfo?.myUserInfo?.userName || ''; // 例：'E EE (EE0101)'
+                var teacherName= cfg.userInfo?.myUserInfo?.myClassInfo?.teacherUserInfo?.userName || ''; // 例：'AAA'
+                var runId      = (cfg.runId != null ? String(cfg.runId) : ''); // 例：'1573'
+                var path       = this.ConfigService?.$location?.$$path || '';  // 例：'/C001'
+            
+                // 擷取括號內 ID：'王小明(T001)' -> 'T001'；沒有括號就原字串
+                function extractId(str) {
+                  if (!str) return '';
+                  var m = String(str).match(/\(([^)]+)\)/);
+                  return (m ? m[1] : String(str)).trim();
+                }
+            
+                var selfId     = extractId(userName);      // 目前登入者的 ID（學生或老師）
+                var teacherId  = extractId(teacherName);   // 老師 ID（學生端要帶）
+                var projectId  = runId;                    // 依需求，用 runId 當 project_id
+                var componentId= String(path).replace(/\//g, '').trim(); // 去掉所有 '/'
+            
+                // 為了固定順序，改用手動拼接參數
+                var enc = encodeURIComponent;
+                var sep = (url.indexOf('?') === -1 ? '?' : '&');
+            
+                if (this.mode === 'authoring') {
+                  // 老師端
+                  var partsT = [];
+                  partsT.push('role=teacher');
+                  if (selfId)     partsT.push('teacher_id=' + enc(selfId));
+                  if (projectId)  partsT.push('project_id=' + enc(projectId));
+                  if (componentId)partsT.push('component_id=' + enc(componentId));
+                  url += sep + partsT.join('&');
+                } else {
+                  // 學生端（或非 authoring）
+                  var partsS = [];
+                  if (selfId)     partsS.push('student_id=' + enc(selfId));
+                  if (projectId)  partsS.push('project_id=' + enc(projectId));
+                  if (componentId)partsS.push('component_id=' + enc(componentId));
+                  if (teacherId)  partsS.push('teacher_id=' + enc(teacherId));
+                  if (partsS.length) url += sep + partsS.join('&');
+                }
+            
+                // 給畫面/除錯 & 給 ng-src 用
+                this.domain = url;
+                this.trustedDomain = this.$sce.trustAsResourceUrl(url);
+            
+                // debug
+                console.log('mode:', this.mode);
+                console.log('domain:', this.domain);
+                console.log('trusted:', this.trustedDomain);
+                console.log('runId:', runId);
+                console.log('userName:', userName);
+                console.log('teacherName:', teacherName);
+                console.log('componentID(path):', path);
+                console.log(this.domain);
+              }.bind(this));
         }
     }
-]);
+    ]);
 
     return AudioOscillatorController;
 }();
 
 ;
 
-AudioOscillatorController.$inject = ['$filter', '$injector', '$mdDialog', '$q', '$rootScope', '$scope', '$timeout','$sce', 'AnnotationService', 'ConfigService', 'NodeService', 'AudioOscillatorService', 'ProjectService', 'StudentAssetService', 'StudentDataService', 'UtilService'];
+AudioOscillatorController.$inject = ['$filter', '$injector', '$mdDialog', '$q', '$rootScope', '$scope', '$timeout', '$sce', 'AnnotationService', 'ConfigService', 'NodeService', 'AudioOscillatorService', 'ProjectService', 'StudentAssetService', 'StudentDataService', 'UtilService'];
 
 exports.default = AudioOscillatorController;
 //# sourceMappingURL=audioOscillatorController.js.map
